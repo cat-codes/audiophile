@@ -1,0 +1,33 @@
+@import '../index.scss';
+
+.item-page {
+  @include page-container;
+  gap: 5em;
+  align-items: flex-start;
+  text-align: left;
+
+  img {
+    padding-block: 1em 0 0;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  ul {
+    padding: 0;
+
+    li {
+      display: flex;
+      gap: 1em;
+      align-items: flex-start;
+    }
+  }
+
+  .contentQty {
+    font-weight: 700;
+    opacity: 1;
+  }
+}

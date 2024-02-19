@@ -1,0 +1,31 @@
+.bg-color {
+  color: #FAFAFA;
+}
+
+.primary-color {
+  color: #101010;
+}
+
+.accent-color {
+  color: #D87D4A;
+}
+
+.secondary-color {
+  color: #F1F1F1;
+}
+
+.secondary-accent-color {
+  color: #fbaf85;
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.hover {
+  color: #4C4C4C;
+}/*# sourceMappingURL=variables.css.map */

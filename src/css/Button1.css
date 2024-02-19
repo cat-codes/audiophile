@@ -1,0 +1,201 @@
+.bg-color {
+  color: #FAFAFA;
+}
+
+.primary-color {
+  color: #101010;
+}
+
+.accent-color {
+  color: #D87D4A;
+}
+
+.secondary-color {
+  color: #F1F1F1;
+}
+
+.secondary-accent-color {
+  color: #fbaf85;
+}
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.hover {
+  color: #4C4C4C;
+}
+
+:root {
+  color: black;
+  background-color: white;
+  box-sizing: border-box;
+  font-family: Manrope;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+h1, .h1-mobile,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.supertitle,
+.price,
+.nav-font,
+.btn-qty-font {
+  margin: 0;
+  padding: 0;
+}
+
+h1, .h1-mobile,
+h2,
+h3,
+h4,
+h5,
+h6,
+.price,
+.nav,
+.btn-qty {
+  font-weight: 700;
+}
+
+p,
+.supertitle {
+  font-weight: 400;
+}
+
+h1, .h1-mobile, h2, h3, h4, h5, h6, .supertitle, .nav, .btn-qty {
+  text-transform: uppercase;
+}
+
+h1, .h1-mobile {
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+}
+
+.h1-mobile {
+  font-size: 36px;
+  line-height: 40px;
+  letter-spacing: 1.286px;
+}
+
+h2 {
+  font-size: 40px;
+  letter-spacing: 1.429px;
+}
+
+.h2-mobile {
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 32px;
+  letter-spacing: 1.143px;
+}
+
+.h3-mobile {
+  font-size: 24px;
+  letter-spacing: 0.857px;
+}
+
+h4 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+h5 {
+  font-size: 24px;
+  letter-spacing: 1.071px;
+}
+
+h6 {
+  font-size: 24px;
+  letter-spacing: 1.286px;
+}
+
+.h6-mobile {
+  font-size: 15px;
+  letter-spacing: 0.857px;
+}
+
+p {
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: normal;
+  opacity: 0.5;
+}
+
+.supertitle {
+  font-size: 14px;
+  letter-spacing: 10px;
+}
+
+.price {
+  font-size: 14px;
+}
+
+.nav {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.qty, button {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  font-family: Manrope;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1em 2em;
+  transition: background-color 0.1s ease-out, color 0.1s ease-out;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+svg {
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: #D87D4A;
+  border: none;
+}
+.button1:hover {
+  background-color: #fbaf85;
+}/*# sourceMappingURL=Button1.css.map */

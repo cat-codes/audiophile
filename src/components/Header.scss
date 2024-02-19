@@ -1,0 +1,16 @@
+@import '../index.scss';
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2em;
+  width: 100%;
+
+  box-sizing: border-box;
+
+  background: color(black);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}

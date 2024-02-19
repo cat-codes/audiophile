@@ -1,0 +1,32 @@
+@import '../index.scss';
+
+.category-page{
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    padding: 1em 0;
+    background: color(black);
+    color: color(white);
+    margin-bottom: 2.5em;
+  }
+
+  &-content {
+    @include page-container;
+    gap: 7em;
+
+    &-grid {
+      @include grid;
+      row-gap: 5em;
+
+      &-item {
+        @include grid-item;
+        justify-content: center;
+        row-gap: 1.5em;
+      }
+    }
+  }
+}

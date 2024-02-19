@@ -1,0 +1,10 @@
+@import '../../index.scss';
+
+.button1 {
+  background-color: color(accent-color);
+  border: none;
+
+    &:hover {
+      background-color: color(secondary-accent-color);
+    }
+}

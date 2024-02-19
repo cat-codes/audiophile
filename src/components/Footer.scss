@@ -1,0 +1,45 @@
+@import '../index.scss';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+  margin: 8em 0 0;
+  padding: 5em 1.5em;
+  box-sizing: border-box;
+  background: color(primary-color);
+
+  &-border {
+    position: absolute;
+    top: 0;
+    width: 25%;
+    border: solid 2px color(accent-color);
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5em;
+    padding: 2.5em;
+    list-style: none;
+
+    li {
+      color: color(white);
+    }
+  }
+
+  &-copyright {
+    padding: 3em 0;
+    font-weight: 700;
+  }
+
+  &-socmedia {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+  }
+}

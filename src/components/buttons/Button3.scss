@@ -1,0 +1,14 @@
+@import '../../index.scss';
+
+.button3 {
+  border: none;
+  background: none;
+  opacity: 0.5;
+    &:hover {
+      color: color(accent-color);
+      opacity: 1;
+    }
+    svg {
+      padding-left: 0.75em;
+    }
+}
