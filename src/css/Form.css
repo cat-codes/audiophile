@@ -187,12 +187,31 @@ html {
   scroll-behavior: ease-in-out;
 }
 
-.button1 {
-  background-color: #D87D4A;
-  border: none;
+form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.5em;
 }
-.button1:hover {
-  background-color: #fbaf85;
-}/*# sourceMappingURL=Button1.css.map */
+form label, form input {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.214px;
+}
+form input {
+  font-size: 14px;
+  letter-spacing: -0.25px;
+  padding: 1em 1.5em;
+  border-radius: 8px;
+  border: 1px solid #cfcfcf;
+  width: 100%;
+  box-sizing: border-box;
+}
+form input::-moz-placeholder {
+  font-size: 14px;
+  opacity: 0.4;
+}
+form input::placeholder {
+  font-size: 14px;
+  opacity: 0.4;
+}/*# sourceMappingURL=Form.css.map */

@@ -1,0 +1,30 @@
+@import '../index.scss';
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+  label {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.214px;
+  }
+
+  input {
+    @extend label;
+    font-size: 14px;
+    letter-spacing: -0.25px;
+    padding: 1em 1.5em;
+    border-radius: 8px;
+    border: 1px solid #cfcfcf;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    font-size: 14px;
+    opacity: 0.4;
+  }
+}

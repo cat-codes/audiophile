@@ -1,0 +1,33 @@
+@import '../index.scss';
+
+.checkout {
+  @include page-container;
+  text-align: left;
+  align-items: flex-start;
+  background: color(bg-color);
+
+  &-form
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    padding: 1.5em 2em;
+    margin-top: 1.5em;
+    background: color(white);
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    &-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      width: 100%;
+      margin-block: 0.5em;
+
+      p {
+        opacity: 1;
+      }
+    }
+  }
+}

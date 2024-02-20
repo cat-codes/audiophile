@@ -185,14 +185,4 @@ svg {
 
 html {
   scroll-behavior: ease-in-out;
-}
-
-.button1 {
-  background-color: #D87D4A;
-  border: none;
-  display: flex;
-  justify-content: center;
-}
-.button1:hover {
-  background-color: #fbaf85;
-}/*# sourceMappingURL=Button1.css.map */
+}/*# sourceMappingURL=CartItem.css.map */
