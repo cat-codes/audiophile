@@ -187,19 +187,30 @@ html {
   scroll-behavior: ease-in-out;
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2em;
-  width: 100%;
-  box-sizing: border-box;
-  background: black;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+.menu-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
 }
-nav button {
-  background: none;
-  border: none;
-  padding: 0;
-}/*# sourceMappingURL=Header.css.map */
+.menu-container .open-menu {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+.menu-container .open-menu ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+  padding: 2.5em;
+  list-style: none;
+}
+.menu-container .open-menu ul li {
+  color: white;
+}/*# sourceMappingURL=Menu.css.map */

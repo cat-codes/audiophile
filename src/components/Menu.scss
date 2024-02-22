@@ -1,0 +1,33 @@
+@import '../index.scss';
+
+.menu-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+
+  .open-menu {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: color(black);
+
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5em;
+        padding: 2.5em;
+        list-style: none;
+
+        li {
+          color: color(white);
+        }
+      }
+  }
+}
