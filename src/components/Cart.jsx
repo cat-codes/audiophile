@@ -1,36 +1,23 @@
 import React from "react";
-import "./Cart.scss";
+import "./Cart";
 import CartIcon from "../assets/svg/CartIcon";
 import { motion, AnimatePresence } from "framer-motion";
-import { GetItem } from "./ItemContext";
-import { GetCart } from "./CartContext";
+import Button1 from "./buttons/Button1";
 
 const Cart = ({ openCart }) => {
-  const { items } = GetItem();
-  const { updateCart } = GetCart();
-
   const variants = {
     open: {
       scale: 1,
       opacity: 1,
-      width: "80vw",
-      height: "50em",
-      x: 0,
-      borderRadius: 8,
       transformOrigin: "top right",
     },
     closed: {
-      scale: 1,
+      scale: 0,
       opacity: 0,
-      x: 0,
-      borderRadius: 8,
       transformOrigin: "top right",
     },
-    exit: {
-      scale: 0,
-      borderRadius: 8,
-    },
   };
+
   return (
     <div>
       <CartIcon />
@@ -39,22 +26,19 @@ const Cart = ({ openCart }) => {
           {openCart && (
             <motion.section
               className="open-cart nav black"
-              initial={{
-                scale: 0,
-                opacity: 0,
-                borderRadius: 8,
-                transformOrigin: "top right",
-              }}
+              initial={{ scale: 0, opacity: 0 }}
               animate="open"
               variants={variants}
               transition={{
                 duration: 0.5,
                 ease: "anticipate",
               }}
-              exit={{ scale: 0 }}
+              exit={{ scale: 0, opacity: 0 }}
             >
-              <h6>thank you for your order</h6>
-              <p>You will receive an email confirmation shortly.</p>
+              <section>
+                <p>Cart (3)</p>
+              </section>
+              <Button1 purpose="back to home" />
             </motion.section>
           )}
         </AnimatePresence>

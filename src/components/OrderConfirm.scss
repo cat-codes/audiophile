@@ -1,0 +1,53 @@
+@import '../index.scss';
+
+.confimration {
+  position: relative;
+  background: color(white);
+  border: 3px solid black;
+  border-radius: 8px;
+  padding: 2em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1.5em;
+  width: 80vw;
+  height: 50em;
+
+  &-text {
+    text-transform: none;
+    width: 100%;
+  }
+
+  &-summary {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    border-radius: 8px;
+    background: color(secondary-color);
+
+    &-total {
+      background: color(black);
+      text-transform: uppercase;
+      padding: 1.5em;
+      border-radius: 0 0 8px 8px;
+
+      .price {
+        font-weight: 700;
+      }
+    }
+
+    &-others {
+      font-weight: 700;
+      text-align: center;
+      padding-block: 1.5em;
+    }
+  }
+
+  >button {
+    width: 100%;
+  }
+}

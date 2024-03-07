@@ -38,6 +38,7 @@ body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, .h1-mobile,
@@ -192,11 +193,35 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
+  z-index: 200;
 }
 .cart-container .open-cart {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: white;
-  border: 3px solid black;
-  padding: 2em;
-  box-sizing: border-box;
+}
+.cart-container .open-cart > p {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.286px;
+  text-transform: uppercase;
+}
+.cart-container .open-cart ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+  padding: 2.5em;
+  list-style: none;
+}
+.cart-container .open-cart ul li {
+  color: black;
+}
+.cart-container > button {
+  width: 100%;
 }/*# sourceMappingURL=Cart.css.map */

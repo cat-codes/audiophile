@@ -38,6 +38,7 @@ body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, .h1-mobile,
@@ -204,6 +205,12 @@ html {
   flex-direction: column;
   gap: 1.5em;
 }
+.item-page .buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
 .item-page ul {
   padding: 0;
 }
@@ -214,5 +221,21 @@ html {
 }
 .item-page .contentQty {
   font-weight: 700;
+  opacity: 1;
+}
+
+.add-subtract {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #FAFAFA;
+}
+.add-subtract p,
+.add-subtract button {
+  border: none;
+  background: none;
+}
+.add-subtract p {
   opacity: 1;
 }/*# sourceMappingURL=ItemPage.css.map */

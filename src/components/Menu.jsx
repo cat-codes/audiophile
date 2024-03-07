@@ -48,7 +48,7 @@ const Menu = ({ openMenu }) => {
 
   return (
     <div>
-      <MenuIcon id="menu-icon" />
+      <MenuIcon />
       <div className="menu-container">
         <AnimatePresence>
           {openMenu && (

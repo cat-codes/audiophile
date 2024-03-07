@@ -16,6 +16,13 @@
     gap: 1.5em;
   }
 
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+  }
+
   ul {
     padding: 0;
 
@@ -28,6 +35,24 @@
 
   .contentQty {
     font-weight: 700;
+    opacity: 1;
+  }
+}
+
+.add-subtract {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: color(bg-color);
+
+  p,
+  button {
+    border: none;
+    background: none;
+  }
+
+  p {
     opacity: 1;
   }
 }

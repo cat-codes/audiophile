@@ -18,7 +18,7 @@ const Homepage = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Link to={"/headphones/XX99-mark-II-headphones"}>
+          <Link to={"/headphones/xx99-mark-ii-headphones"}>
             <Button1 purpose="see product" />
           </Link>
         </div>
@@ -35,7 +35,7 @@ const Homepage = () => {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </p>
-          <Link to={"/zx9-speaker"}>
+          <Link to={"/speakers/zx9-speaker"}>
             <Button2 id="button2-dark" purpose="see product" />
           </Link>
         </div>
@@ -46,7 +46,7 @@ const Homepage = () => {
           />
           <div className="ad-item-content-speakerzx7">
             <h4 className="black">zx7 speaker</h4>
-            <Link to={"/zx7-speaker"}>
+            <Link to={"/speakers/zx7-speaker"}>
               <Button2 purpose="see product" />
             </Link>
           </div>
@@ -58,7 +58,7 @@ const Homepage = () => {
           />
           <div className="ad-item-content-earphones">
             <h4 className="black">yx1 earphones</h4>
-            <Link to={"/yx1-earphones"}>
+            <Link to={"/earphones/yx1-earphones"}>
               <Button2 purpose="see product" />
             </Link>
           </div>

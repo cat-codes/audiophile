@@ -141,6 +141,7 @@ p {
 
 .price {
   font-size: 14px;
+  opacity: 1;
 }
 
 .nav {
@@ -210,7 +211,7 @@ html {
 }
 .category-item-shadow {
   position: absolute;
-  top: -33%;
+  top: -60%;
   scale: 0.5;
 }
 .category-item-content {

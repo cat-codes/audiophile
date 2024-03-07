@@ -1,3 +1,5 @@
+// Extrects each item with its info from the Database
+
 import React, { createContext, useContext } from "react";
 import { shop } from "../Database";
 

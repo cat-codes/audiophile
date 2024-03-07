@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./ItemPage.scss";
 import { useParams } from "react-router-dom";
 import { shop } from "../Database";
@@ -6,10 +6,13 @@ import Categories from "../components/Categories";
 import About from "../components/About";
 import Button1 from "../components/buttons/Button1";
 import GoBack from "../components/buttons/GoBack";
+import { GetCart } from "../components/CartContext";
 
 const ItemPage = () => {
   const { itemImg } = useParams();
-  console.log("itemImg: ", itemImg);
+  // console.log("itemImg: ", itemImg);
+  const { cart, updateCart } = GetCart();
+  const [quantityToAdd, setQuantityToAdd] = useState(1);
 
   function extractItemInfo(itemImg) {
     if (!shop.categories) {
@@ -33,6 +36,32 @@ const ItemPage = () => {
   const currentItem = extractItemInfo(itemImg);
   console.log("currentItem: ", currentItem);
 
+  const handleQuantityToAdd = () => {
+    setQuantityToAdd(quantityToAdd + 1);
+  };
+
+  const handleQuantityToSubtract = () => {
+    if (quantityToAdd > 1) {
+      setQuantityToAdd(quantityToAdd - 1);
+    }
+  };
+
+  const handleAddToCart = (product) => {
+    const existingProduct = cart.find((item) => item.id === product.id);
+    if (existingProduct) {
+      const updateCartProduct = cart.map((item) =>
+        item.id === product.id ? { ...item, quantity: quantityToAdd } : item
+      );
+      updateCart(updateCartProduct);
+    } else {
+      updateCart([...cart, { ...currentItem, quantity: 1 }]);
+    }
+  };
+
+  useEffect(() => {
+    console.log("Updated cart: ", cart);
+  }, [cart]);
+
   return (
     <div className="item-page">
       <section>
@@ -46,7 +75,19 @@ const ItemPage = () => {
         <h4>{currentItem.itemName}</h4>
         <p className="black">{currentItem.description}</p>
         <p className="price">{currentItem.price}</p>
-        <Button1 purpose={"add to cart"} />
+        <section className="buttons">
+          <div className="add-subtract">
+            <button onClick={handleQuantityToSubtract}>-</button>
+            <p type="button" className="black">
+              {quantityToAdd}
+            </p>
+            <button onClick={handleQuantityToAdd}>+</button>
+          </div>
+          <Button1
+            purpose={"add to cart"}
+            onClick={() => handleAddToCart(currentItem)}
+          />
+        </section>
       </section>
       <section>
         <h4>features</h4>

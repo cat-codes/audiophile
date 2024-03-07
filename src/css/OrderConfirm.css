@@ -188,19 +188,48 @@ html {
   scroll-behavior: ease-in-out;
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+.confimration {
+  position: relative;
+  background: white;
+  border: 3px solid black;
+  border-radius: 8px;
   padding: 2em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1.5em;
+  width: 80vw;
+  height: 50em;
+}
+.confimration-text {
+  text-transform: none;
+  width: 100%;
+}
+.confimration-summary {
   width: 100%;
   box-sizing: border-box;
-  background: black;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  border-radius: 8px;
+  background: #F1F1F1;
 }
-nav > button {
-  background: none;
-  border: none;
-  padding: 0;
-}/*# sourceMappingURL=Header.css.map */
+.confimration-summary-total {
+  background: black;
+  text-transform: uppercase;
+  padding: 1.5em;
+  border-radius: 0 0 8px 8px;
+}
+.confimration-summary-total .price {
+  font-weight: 700;
+}
+.confimration-summary-others {
+  font-weight: 700;
+  text-align: center;
+  padding-block: 1.5em;
+}
+.confimration > button {
+  width: 100%;
+}/*# sourceMappingURL=OrderConfirm.css.map */

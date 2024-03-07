@@ -188,19 +188,18 @@ html {
   scroll-behavior: ease-in-out;
 }
 
-nav {
+.p, button {
+  border: none;
+  background: none;
+}
+
+.add-subtract {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  padding: 2em;
-  width: 100%;
-  box-sizing: border-box;
-  background: black;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background: #FAFAFA;
 }
-nav > button {
-  background: none;
-  border: none;
-  padding: 0;
-}/*# sourceMappingURL=Header.css.map */
+.add-subtract p {
+  opacity: 1;
+}/*# sourceMappingURL=AddSubtract.css.map */
