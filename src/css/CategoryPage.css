@@ -31,22 +31,14 @@
 }
 
 :root {
-  color: black;
-  background-color: white;
-  box-sizing: border-box;
   font-family: Manrope;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  box-sizing: border-box;
   margin: 0;
-  display: flex;
   min-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, .h1-mobile,
@@ -61,7 +53,6 @@ p,
 .nav-font,
 .btn-qty-font {
   margin: 0;
-  padding: 0;
 }
 
 h1, .h1-mobile,
@@ -151,6 +142,7 @@ p {
 
 .price {
   font-size: 14px;
+  opacity: 1;
 }
 
 .nav {
@@ -179,12 +171,21 @@ button {
   width: fit-content;
   padding: 1em 2em;
   transition: background-color 0.1s ease-out, color 0.1s ease-out;
+  cursor: pointer;
 }
 
 img {
   width: 100%;
   height: auto;
   border-radius: 8px;
+}
+
+svg {
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: ease-in-out;
 }
 
 .category-page-header {
@@ -196,34 +197,26 @@ img {
   padding: 1em 0;
   background: black;
   color: white;
-  margin-bottom: 2.5em;
+  margin-bottom: 0.5em;
 }
 .category-page-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1.5em;
-  box-sizing: border-box;
+  padding-inline: 1.5em;
   gap: 7em;
 }
 .category-page-content-grid {
   display: grid;
-  justify-content: center;
-  align-items: center;
-  grid-template-columns: 100%;
   grid-template-rows: repeat(3, auto);
   width: 100%;
-  box-sizing: border-box;
   row-gap: 5em;
 }
 .category-page-content-grid-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  width: 100%;
   border-radius: 8px;
-  box-sizing: border-box;
   justify-content: center;
   row-gap: 1.5em;
 }/*# sourceMappingURL=CategoryPage.css.map */

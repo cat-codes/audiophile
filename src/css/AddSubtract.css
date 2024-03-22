@@ -188,18 +188,26 @@ html {
   scroll-behavior: ease-in-out;
 }
 
-.p, button {
-  border: none;
-  background: none;
-}
-
 .add-subtract {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background: #FAFAFA;
 }
+.add-subtract p,
+.add-subtract button {
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 700;
+}
 .add-subtract p {
   opacity: 1;
+}
+.add-subtract button {
+  opacity: 0.25;
 }/*# sourceMappingURL=AddSubtract.css.map */

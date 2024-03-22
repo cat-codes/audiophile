@@ -10,6 +10,7 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Handles link navigation
   const handleClick = (path) => {
     if (location.pathname === path) {
       window.scrollTo({

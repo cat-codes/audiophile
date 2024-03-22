@@ -38,6 +38,7 @@ body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, .h1-mobile,
@@ -216,4 +217,8 @@ html {
 }
 .checkout-form-section p {
   opacity: 1;
+}
+.checkout > button {
+  width: 100%;
+  margin-top: 2em;
 }/*# sourceMappingURL=Checkout.css.map */

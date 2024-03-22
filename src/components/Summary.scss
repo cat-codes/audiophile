@@ -1,0 +1,102 @@
+@import '../index.scss';
+
+.summary {
+  @include page-container;
+  text-align: left;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1.5em;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 2em 2em 0;
+  margin-top: 1.5em;
+  background: color(white);
+
+  &-title {
+    opacity: 1;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.286px;
+    text-transform: uppercase;
+  }
+
+  &-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    ul {
+      width: 100%;
+      padding-inline-start: 0;
+
+      li {
+          list-style: none;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+        .summary-items-list-left {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .item-img {
+          height: 3em;
+          width: 3em;
+          margin-right: 1.25em;
+        }
+
+        .item-info-title {
+          font-weight: 700;
+          opacity: 1;
+        }
+
+        .item-info-price {
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .item-qty {
+          font-weight: 700;
+        }
+
+      }
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-piece, &-total {
+      @extend .summary-info;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      opacity: 1;
+    }
+  }
+
+  .label, .price {
+    width: fit-content;
+  }
+
+  .label {
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  .price {
+    @extend .summary-title;
+    letter-spacing: normal;
+  }
+
+ }

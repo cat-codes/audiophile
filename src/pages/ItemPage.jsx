@@ -7,13 +7,17 @@ import About from "../components/About";
 import Button1 from "../components/buttons/Button1";
 import GoBack from "../components/buttons/GoBack";
 import { GetCart } from "../components/CartContext";
+import AddSubtract from "../components/buttons/AddSubtract";
 
 const ItemPage = () => {
+  // Refers to "itemImg" in Route path in App.js
   const { itemImg } = useParams();
-  // console.log("itemImg: ", itemImg);
-  const { cart, updateCart } = GetCart();
+  const { cart, setCart } = GetCart();
   const [quantityToAdd, setQuantityToAdd] = useState(1);
 
+  console.log("cart: ", cart);
+
+  // Extracts information about the item into a currentItem object
   function extractItemInfo(itemImg) {
     if (!shop.categories) {
       return null;
@@ -36,6 +40,7 @@ const ItemPage = () => {
   const currentItem = extractItemInfo(itemImg);
   console.log("currentItem: ", currentItem);
 
+  // Tracks the quantity of the item to add to the cart
   const handleQuantityToAdd = () => {
     setQuantityToAdd(quantityToAdd + 1);
   };
@@ -46,21 +51,41 @@ const ItemPage = () => {
     }
   };
 
-  const handleAddToCart = (product) => {
-    const existingProduct = cart.find((item) => item.id === product.id);
-    if (existingProduct) {
-      const updateCartProduct = cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: quantityToAdd } : item
-      );
-      updateCart(updateCartProduct);
-    } else {
-      updateCart([...cart, { ...currentItem, quantity: 1 }]);
+  console.log("quantityToAdd: ", quantityToAdd);
+
+  // Adds item to the cart or updates its quantity if it already exists in the cart
+  const handleAddToCart = (currentItem) => {
+    console.log("Entering handleAddToCart function.");
+
+    // Check if currentItem is not null
+    if (!currentItem) {
+      console.log("Item is null");
+      return;
     }
+
+    // Checks if the item already exists in the cart
+    const existingItem = cart.find(
+      (cartItem) => cartItem.itemName === currentItem.itemName
+    );
+
+    // Calculates the new quantity to add
+    const newQuantity = existingItem
+      ? existingItem.quantity + quantityToAdd
+      : quantityToAdd;
+
+    // Updates the cart
+    const updatedCart = existingItem
+      ? cart.map((cartItem) =>
+          cartItem.itemName === currentItem.itemName
+            ? { ...cartItem, quantity: newQuantity }
+            : cartItem
+        )
+      : [...cart, { ...currentItem, quantity: quantityToAdd }];
+
+    setCart(updatedCart);
   };
 
-  useEffect(() => {
-    console.log("Updated cart: ", cart);
-  }, [cart]);
+  console.log("updatedCart: ", cart);
 
   return (
     <div className="item-page">
@@ -74,18 +99,19 @@ const ItemPage = () => {
         )}
         <h4>{currentItem.itemName}</h4>
         <p className="black">{currentItem.description}</p>
-        <p className="price">{currentItem.price}</p>
+        <p className="price">{currentItem.priceStr}</p>
+
         <section className="buttons">
-          <div className="add-subtract">
-            <button onClick={handleQuantityToSubtract}>-</button>
-            <p type="button" className="black">
-              {quantityToAdd}
-            </p>
-            <button onClick={handleQuantityToAdd}>+</button>
-          </div>
+          <AddSubtract
+            quantityToHandle={quantityToAdd}
+            handleAdd={handleQuantityToAdd}
+            handleSubtract={handleQuantityToSubtract}
+          />
+
           <Button1
             purpose={"add to cart"}
             onClick={() => handleAddToCart(currentItem)}
+            aria-label="Add to cart"
           />
         </section>
       </section>

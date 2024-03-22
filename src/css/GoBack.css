@@ -38,6 +38,7 @@ body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, .h1-mobile,
@@ -191,5 +192,5 @@ html {
   background: none;
   border: none;
   opacity: 0.5;
-  padding: 1.5em 0 0;
+  padding-bottom: 2.5em;
 }/*# sourceMappingURL=GoBack.css.map */

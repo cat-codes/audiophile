@@ -10,22 +10,22 @@ const Header = () => {
 
   const handleMenu = () => {
     setOpenMenu((prevOpenMenu) => !prevOpenMenu);
-    console.log("Menu open?", openMenu);
+    console.log("Menu open?", !openMenu);
   };
 
   const handleCart = () => {
     setOpenCart((prevOpenCart) => !prevOpenCart);
-    console.log("Cart open?", openCart);
+    console.log("Cart open?", !openCart);
   };
 
   return (
     <nav>
       <button type="button" onClick={() => handleMenu()}>
-        <Menu openMenu={openMenu} />
+        <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
       </button>
       <Logo />
       <button type="button" onClick={() => handleCart()}>
-        <Cart openCart={openCart} />
+        <Cart openCart={openCart} setOpenCart={setOpenCart} />
       </button>
     </nav>
   );

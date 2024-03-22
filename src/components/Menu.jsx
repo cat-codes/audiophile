@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import MenuIcon from "../assets/svg/MenuIcon";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Menu = ({ openMenu }) => {
+const Menu = ({ openMenu, setOpenMenu }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -20,6 +20,7 @@ const Menu = ({ openMenu }) => {
         top: 0,
       });
     }
+    setOpenMenu(false);
   };
 
   const variants = {
@@ -53,6 +54,8 @@ const Menu = ({ openMenu }) => {
         <AnimatePresence>
           {openMenu && (
             <motion.section
+              key="menuContent"
+              onClick={(event) => event.stopPropagation()}
               className="open-menu nav white"
               initial={{
                 scale: 0,

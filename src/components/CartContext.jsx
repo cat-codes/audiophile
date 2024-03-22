@@ -1,5 +1,3 @@
-// Sets and updates items in the cart
-
 import React, { useState, useEffect, createContext, useContext } from "react";
 
 export const CartContext = createContext();
@@ -18,13 +16,18 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // Updates cart
-  const updateCart = (newCart) => {
-    setCart((prevCart) => newCart);
-  };
+  // Calculates total price of all items in the cart
+  const totalPrice = cart
+    .map((item) => item.price * item.quantity)
+    .reduce((accumulator, currentItem) => accumulator + currentItem, 0);
+
+  // Calculates total quantity of all items in the cart
+  const totalQty = cart
+    .map((item) => item.quantity)
+    .reduce((accumulator, currentItem) => accumulator + currentItem, 0);
 
   return (
-    <CartContext.Provider value={{ cart, updateCart }}>
+    <CartContext.Provider value={{ cart, setCart, totalPrice, totalQty }}>
       {children}
     </CartContext.Provider>
   );

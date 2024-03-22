@@ -38,6 +38,7 @@ body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, .h1-mobile,
@@ -141,6 +142,7 @@ p {
 
 .price {
   font-size: 14px;
+  opacity: 1;
 }
 
 .nav {

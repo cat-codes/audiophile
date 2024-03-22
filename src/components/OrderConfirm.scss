@@ -1,53 +1,115 @@
 @import '../index.scss';
-
-.confimration {
-  position: relative;
-  background: color(white);
-  border: 3px solid black;
-  border-radius: 8px;
-  padding: 2em;
-  box-sizing: border-box;
+.confirmation-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 1.5em;
-  width: 80vw;
-  height: 50em;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  box-sizing: border-box;
 
-  &-text {
-    text-transform: none;
-    width: 100%;
-  }
-
-  &-summary {
-    width: 100%;
+  .open-confirmation {
+    position: relative;
+    background: color(white);
+    border-radius: 8px;
+    padding: 2.5em;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    text-align: left;
     gap: 1.5em;
-    border-radius: 8px;
-    background: color(secondary-color);
+    width: 80vw;
 
-    &-total {
-      background: color(black);
-      text-transform: uppercase;
-      padding: 1.5em;
-      border-radius: 0 0 8px 8px;
+    &-h {
+      line-height: 28px;
+    }
 
-      .price {
-        font-weight: 700;
+    &-msg {
+      text-transform: none;
+      width: 100%;
+    }
+
+    &-summary {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-top {
+        padding: 1.5em;
+        border-radius: 8px;
+        background: color(secondary-color);
+        width: 100%;
+        box-sizing: border-box;
+
+        &-item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid rgb(0, 0, 0, 0.08);
+          padding-bottom: 1em;
+
+          img {
+            height: 4em;
+            width: 4em;
+          }
+
+          &-details {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+
+            &-name {
+              opacity: 1;
+              font-weight: 700;
+            }
+
+            .price {
+              opacity: 0.5;
+            }
+          }
+
+          .qty {
+            opacity: 0.5;
+            text-transform: none;
+          }
+        }
+
+        &-extra {
+          font-size: 12px;
+          font-weight: 700;
+          text-transform: none;
+          text-align: center;
+          padding-top: 1em;
+        }
+      }
+
+      &-total {
+        background: color(black);
+        text-transform: uppercase;
+        padding: 1em 1.5em;
+        border-radius: 0 0 8px 8px;
+        gap: 0.5em;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+
+        &-price {
+          font-size: 18px;
+          font-weight: 500;
+          opacity: 1;
+        }
       }
     }
 
-    &-others {
-      font-weight: 700;
-      text-align: center;
-      padding-block: 1.5em;
+    button {
+      width: 100%;
     }
-  }
-
-  >button {
-    width: 100%;
   }
 }

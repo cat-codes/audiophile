@@ -188,48 +188,102 @@ html {
   scroll-behavior: ease-in-out;
 }
 
-.confimration {
+.confirmation-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  box-sizing: border-box;
+}
+.confirmation-container .open-confirmation {
   position: relative;
   background: white;
-  border: 3px solid black;
   border-radius: 8px;
-  padding: 2em;
+  padding: 2.5em;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   text-align: left;
   gap: 1.5em;
   width: 80vw;
-  height: 50em;
 }
-.confimration-text {
+.confirmation-container .open-confirmation-h {
+  line-height: 28px;
+}
+.confirmation-container .open-confirmation-msg {
   text-transform: none;
   width: 100%;
 }
-.confimration-summary {
+.confirmation-container .open-confirmation-summary {
   width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  align-items: center;
+}
+.confirmation-container .open-confirmation-summary-top {
+  padding: 1.5em;
   border-radius: 8px;
   background: #F1F1F1;
+  width: 100%;
+  box-sizing: border-box;
 }
-.confimration-summary-total {
+.confirmation-container .open-confirmation-summary-top-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 1em;
+}
+.confirmation-container .open-confirmation-summary-top-item img {
+  height: 4em;
+  width: 4em;
+}
+.confirmation-container .open-confirmation-summary-top-item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+.confirmation-container .open-confirmation-summary-top-item-details-name {
+  opacity: 1;
+  font-weight: 700;
+}
+.confirmation-container .open-confirmation-summary-top-item-details .price {
+  opacity: 0.5;
+}
+.confirmation-container .open-confirmation-summary-top-item .qty, .confirmation-container .open-confirmation-summary-top-item button {
+  opacity: 0.5;
+  text-transform: none;
+}
+.confirmation-container .open-confirmation-summary-top-extra {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: none;
+  text-align: center;
+  padding-top: 1em;
+}
+.confirmation-container .open-confirmation-summary-total {
   background: black;
   text-transform: uppercase;
-  padding: 1.5em;
+  padding: 1em 1.5em;
   border-radius: 0 0 8px 8px;
+  gap: 0.5em;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
-.confimration-summary-total .price {
-  font-weight: 700;
+.confirmation-container .open-confirmation-summary-total-price {
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 1;
 }
-.confimration-summary-others {
-  font-weight: 700;
-  text-align: center;
-  padding-block: 1.5em;
-}
-.confimration > button {
+.confirmation-container .open-confirmation button {
   width: 100%;
 }/*# sourceMappingURL=OrderConfirm.css.map */

@@ -9,6 +9,7 @@ import About from "../components/About";
 const Homepage = () => {
   return (
     <div className="home-container">
+      {/* Hero section */}
       <section className="hero">
         <img src="src/assets/homepage/mobile/hero-img.jpg" />
         <div className="hero-contents">
@@ -23,8 +24,12 @@ const Homepage = () => {
           </Link>
         </div>
       </section>
+
       <Categories />
+
+      {/* Advertisement section */}
       <section className="ad">
+        {/* Speaker ad */}
         <div className="ad-item-speakerzx9">
           <img
             className="ad-item-img-speakerzx9"
@@ -39,6 +44,8 @@ const Homepage = () => {
             <Button2 id="button2-dark" purpose="see product" />
           </Link>
         </div>
+
+        {/* Speaker 2 ad */}
         <div className="ad-item">
           <img
             className="ad-item-img-speakerzx7"
@@ -51,6 +58,8 @@ const Homepage = () => {
             </Link>
           </div>
         </div>
+
+        {/* Earphones ad */}
         <div className="ad-item">
           <img
             className="ad-item-img-earphones"
@@ -64,6 +73,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
+
       <About />
     </div>
   );

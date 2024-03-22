@@ -9,7 +9,11 @@ const GoBack = () => {
     navigate(-1);
   };
 
-  return <button className="black go-back">Go Back</button>;
+  return (
+    <button className="black go-back" type="button" onClick={goBack}>
+      Go Back
+    </button>
+  );
 };
 
 export default GoBack;
