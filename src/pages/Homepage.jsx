@@ -11,7 +11,7 @@ const Homepage = () => {
     <div className="home-container">
       {/* Hero section */}
       <section className="hero">
-        <img src="src/assets/homepage/mobile/hero-img.jpg" />
+        <img src="homepage/mobile/hero-img.jpg" />
         <div className="hero-contents">
           <p className="supertitle white">new product</p>
           <h1 className="h1-mobile white">XX99 Mark II Headphones</h1>
