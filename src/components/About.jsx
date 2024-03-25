@@ -4,7 +4,7 @@ import "./About.scss";
 const About = () => {
   return (
     <section className="about">
-      <img src="/src/assets/homepage/mobile/about-img.jpg" />
+      <img src="homepage/mobile/about-img.jpg" />
       <h2 className="h2-mobile black">
         Bringing you the <span>best</span> audio gear
       </h2>

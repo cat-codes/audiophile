@@ -109,7 +109,7 @@ const Cart = ({ openCart, setOpenCart }) => {
                     <li key={index}>
                       <img
                         className="item-img"
-                        src={`/src/assets/item-page/mobile/${item.img}/${item.img}-0.jpg`}
+                        src={`item-page/mobile/${item.img}/${item.img}-0.jpg`}
                       />
                       <section className="item-info">
                         <p className="item-info-title black">{item.short}</p>
