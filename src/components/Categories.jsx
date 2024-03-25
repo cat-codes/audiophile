@@ -35,12 +35,12 @@ const Categories = () => {
         <section className="category-item" key={index}>
           <img
             className="category-item-img"
-            src={`homepage/mobile/category-${category}.png`}
+            src={`/homepage/mobile/category-${category}.png`}
             alt={category}
           />
           <img
             className="category-item-shadow"
-            src="homepage/mobile/category-shadow.png"
+            src="/homepage/mobile/category-shadow.png"
           />
           <section className="category-item-content">
             <Link

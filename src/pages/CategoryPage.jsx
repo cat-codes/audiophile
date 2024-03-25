@@ -23,7 +23,7 @@ const CategoryPage = () => {
           {/* Maps thorugh each item in items array and displays each item of the particular category on the page*/}
           {items.map((item, index) => (
             <section className="category-page-content-grid-item" key={index}>
-              <img src={`category-page/mobile/${item}.jpg`} />
+              <img src={`/category-page/mobile/${item}.jpg`} />
               {/* Checks if it's a new product and adds a supertitle accordingly */}
               {shop.categories[category][item].newProduct && (
                 <p className="supertitle accent-color">new product</p>

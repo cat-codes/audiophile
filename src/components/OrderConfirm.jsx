@@ -84,7 +84,7 @@ const OrderConfirm = ({ openConfirm }) => {
                       }}
                     >
                       <img
-                        src={`item-page/mobile/${cart[0]?.img}/${cart[0]?.img}-0.jpg`}
+                        src={`/item-page/mobile/${cart[0]?.img}/${cart[0]?.img}-0.jpg`}
                       />
                       <div className="open-confirmation-summary-top-item-details">
                         <p className="open-confirmation-summary-top-item-details-name">

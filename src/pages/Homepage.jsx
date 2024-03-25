@@ -11,7 +11,7 @@ const Homepage = () => {
     <div className="home-container">
       {/* Hero section */}
       <section className="hero">
-        <img src="homepage/mobile/hero-img.jpg" />
+        <img src="/homepage/mobile/hero-img.jpg" />
         <div className="hero-contents">
           <p className="supertitle white">new product</p>
           <h1 className="h1-mobile white">XX99 Mark II Headphones</h1>
@@ -33,7 +33,7 @@ const Homepage = () => {
         <div className="ad-item-speakerzx9">
           <img
             className="ad-item-img-speakerzx9"
-            src="homepage/mobile/ad-zx9-speaker.png"
+            src="/homepage/mobile/ad-zx9-speaker.png"
           />
           <h1 className="h1-mobile white">zx9 speaker</h1>
           <p className="white">
@@ -49,7 +49,7 @@ const Homepage = () => {
         <div className="ad-item">
           <img
             className="ad-item-img-speakerzx7"
-            src="homepage/mobile/ad-zx7-speaker.jpg"
+            src="/homepage/mobile/ad-zx7-speaker.jpg"
           />
           <div className="ad-item-content-speakerzx7">
             <h4 className="black">zx7 speaker</h4>
@@ -63,7 +63,7 @@ const Homepage = () => {
         <div className="ad-item">
           <img
             className="ad-item-img-earphones"
-            src="homepage/mobile/ad-YX1-earphones.jpg"
+            src="/homepage/mobile/ad-YX1-earphones.jpg"
           />
           <div className="ad-item-content-earphones">
             <h4 className="black">yx1 earphones</h4>
