@@ -40,7 +40,7 @@ const Categories = () => {
           />
           <img
             className="category-item-shadow"
-            src="/src/assets/homepage/mobile/category-shadow.png"
+            src="homepage/mobile/category-shadow.png"
           />
           <section className="category-item-content">
             <Link
