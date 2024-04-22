@@ -1,6 +1,6 @@
 // Extrects each item with its info from the Database
 
-import React, { createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 import { shop } from "../Database";
 
 const ItemContext = createContext();
@@ -13,6 +13,8 @@ export const ItemProvider = ({ children }) => {
       items[itemName] = itemInfo;
     });
   });
+
+  console.log("ItemContext items obj: ", items);
 
   return <ItemContext.Provider value={items}>{children}</ItemContext.Provider>;
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import "./OrderConfirm.scss";
 import { GetCart } from "../components/CartContext";
 import Check from "../assets/svg/Check";
@@ -45,9 +44,7 @@ const OrderConfirm = ({ openConfirm }) => {
             />
             {/* Cart content */}
             <motion.section
-              key="cartContent"
-              onClick={(event) => event.stopPropagation()}
-              className="open-cart nav black"
+              key="overlayContent"
               initial={{
                 scale: 0,
                 opacity: 0,
@@ -84,7 +81,7 @@ const OrderConfirm = ({ openConfirm }) => {
                       }}
                     >
                       <img
-                        src={`/item-page/mobile/${cart[0]?.img}/${cart[0]?.img}-0.jpg`}
+                        src={`/src/assets/item-page/mobile/${cart[0]?.img}/${cart[0]?.img}-preview.jpg`}
                       />
                       <div className="open-confirmation-summary-top-item-details">
                         <p className="open-confirmation-summary-top-item-details-name">

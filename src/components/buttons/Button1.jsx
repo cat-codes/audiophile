@@ -1,4 +1,3 @@
-import React from "react";
 import "./Button1.scss";
 
 const Button1 = ({ purpose, onClick }) => {

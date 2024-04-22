@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "./Cart.scss";
 import { Link } from "react-router-dom";
 import CartIcon from "../assets/svg/CartIcon";
@@ -8,8 +8,17 @@ import { GetCart } from "../components/CartContext";
 import RemoveAll from "./buttons/RemoveAll";
 import AddSubtract from "./buttons/AddSubtract";
 
-const Cart = ({ openCart, setOpenCart }) => {
+const Cart = () => {
   const { cart, setCart } = GetCart();
+
+  const [openCart, setOpenCart] = useState(false);
+  const [checkoutClicked, setCheckoutClicked] = useState(false);
+
+  // Toggles cart menu
+  const handleCart = () => {
+    setOpenCart((prevOpenCart) => !prevOpenCart);
+    console.log("Cart open?", !openCart);
+  };
 
   // Finds the total amount of each item in the cart
   const cartItemCount = new Set(cart.map((item) => item.itemName)).size;
@@ -41,11 +50,19 @@ const Cart = ({ openCart, setOpenCart }) => {
     console.log("updatedCart: ", cart);
   };
 
+  // Close cart when checkout button is clicked
+  useEffect(() => {
+    if (checkoutClicked) {
+      setOpenCart(false);
+      setCheckoutClicked(false);
+    }
+  }, [checkoutClicked]);
+
   const variants = {
     open: {
       scale: 1,
       opacity: 1,
-      width: "85vw",
+      width: "90vw",
       height: "60vh",
       y: "-15%",
       borderRadius: "8px",
@@ -60,7 +77,7 @@ const Cart = ({ openCart, setOpenCart }) => {
   const isCartEmpty = cart.length === 0 || totalPrice === 0;
 
   return (
-    <div>
+    <button type="button" onClick={() => handleCart()}>
       <CartIcon />
       <div className="cart-container">
         <AnimatePresence>
@@ -82,7 +99,6 @@ const Cart = ({ openCart, setOpenCart }) => {
               {/* Cart content */}
               <motion.section
                 key="cartContent"
-                onClick={(event) => event.stopPropagation()}
                 className="open-cart nav black"
                 initial={{
                   scale: 0,
@@ -109,7 +125,7 @@ const Cart = ({ openCart, setOpenCart }) => {
                     <li key={index}>
                       <img
                         className="item-img"
-                        src={`/item-page/mobile/${item.img}/${item.img}-0.jpg`}
+                        src={`/src/assets/item-page/mobile/${item.img}/${item.img}-preview.jpg`}
                       />
                       <section className="item-info">
                         <p className="item-info-title black">{item.short}</p>
@@ -129,6 +145,7 @@ const Cart = ({ openCart, setOpenCart }) => {
                   <p className="open-cart-total-price">{`$ ${totalPrice}`}</p>
                 </section>
                 <div
+                  className="buttn"
                   style={{
                     pointerEvents: isCartEmpty ? "none" : "auto",
                     opacity: isCartEmpty ? "0.5" : "1",
@@ -137,8 +154,7 @@ const Cart = ({ openCart, setOpenCart }) => {
                   <Link to={`/checkout`}>
                     <Button1
                       purpose="checkout"
-                      className="checkoutButton"
-                      onClick={() => setOpenCart(false)}
+                      onClick={() => setCheckoutClicked(true)}
                     />
                   </Link>
                 </div>
@@ -147,7 +163,7 @@ const Cart = ({ openCart, setOpenCart }) => {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </button>
   );
 };
 

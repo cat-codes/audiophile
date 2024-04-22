@@ -1,45 +1,45 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Checkout.scss";
 import GoBack from "../components/buttons/GoBack";
 import Form from "../components/Form";
 import Form2 from "../components/Form2";
 import Summary from "../components/Summary";
-import Button1 from "../components/buttons/Button1";
-import { useFormContext } from "../components/FormContext";
+import Submit from "../components/buttons/Submit";
 import OrderConfirm from "../components/OrderConfirm";
 
 const Checkout = () => {
-  const { formData, openConfirm, handleSubmit, isSubmitted } = useFormContext();
+  const [openConfirm, setOpenConfirm] = useState(false);
 
-  console.log("formData: ", formData);
+  useEffect(() => {
+    if (openConfirm) {
+      console.log("Button clicked");
+    }
+  }, [openConfirm]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!openConfirm) {
+      setOpenConfirm(true);
+    }
+  };
+
+  console.log("openConfirm: ", openConfirm);
 
   return (
     <div className="checkout">
       <GoBack />
 
-      <div className="checkout-form">
+      <form className="checkout-form" onSubmit={handleSubmit} id="checkoutForm">
         <h4>checkout</h4>
-
         <section className="checkout-form-section">
           <p className="nav accent-color">Billing details</p>
-          <Form
-            label="Name"
-            placeholder="Alexei Ward"
-            type="text"
-            isSubmitted={isSubmitted}
-          />
+          <Form label="Name" placeholder="Alexei Ward" type="text" />
           <Form
             label="Email address"
             placeholder="alexei@mail.com"
             type="email"
-            isSubmitted={isSubmitted}
           />
-          <Form
-            label="Phone Number"
-            placeholder="+1 202-555-0136"
-            type="tel"
-            isSubmitted={isSubmitted}
-          />
+          <Form label="Phone Number" placeholder="+1 202-555-0136" type="tel" />
         </section>
 
         <section className="checkout-form-section">
@@ -48,49 +48,24 @@ const Checkout = () => {
             label="Your Address"
             placeholder="1137 Williams Avenue"
             type="text"
-            isSubmitted={isSubmitted}
           />
-          <Form
-            label="ZIP Code"
-            placeholder="10001"
-            type="number"
-            isSubmitted={isSubmitted}
-          />
-          <Form
-            label="City"
-            placeholder="New York"
-            type="text"
-            isSubmitted={isSubmitted}
-          />
-          <Form
-            label="Country"
-            placeholder="United States"
-            type="text"
-            isSubmitted={isSubmitted}
-          />
+          <Form label="ZIP Code" placeholder="10001" type="number" />
+          <Form label="City" placeholder="New York" type="text" />
+          <Form label="Country" placeholder="United States" type="text" />
         </section>
 
         <section className="checkout-form-section">
           <p className="nav accent-color">Payment details</p>
-          <Form2 formData={formData} isSubmitted={isSubmitted} />
-          <Form
-            label="e-Money Number"
-            placeholder="238521993"
-            type="number"
-            isSubmitted={isSubmitted}
-          />
-          <Form
-            label="e-Money PIN"
-            placeholder="6891"
-            type="number"
-            isSubmitted={isSubmitted}
-          />
+          <Form2 />
+          <Form label="e-Money Number" placeholder="238521993" type="number" />
+          <Form label="e-Money PIN" placeholder="6891" type="number" />
         </section>
-      </div>
 
-      <Summary />
+        <Summary />
 
-      <Button1 purpose="continue & pay" onClick={handleSubmit} />
+        <Submit onClick={handleSubmit} />
+      </form>
+
       <OrderConfirm openConfirm={openConfirm} />
     </div>
   );

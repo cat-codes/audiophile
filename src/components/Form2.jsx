@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Form2.scss";
-import { useFormContext } from "../components/FormContext";
 
-const Form2 = ({ isSubmitted }) => {
+const Form2 = () => {
   const [selectedOption, setSelectedOption] = useState("");
-  const { setFormData } = useFormContext();
 
   // Handles "Payment Details" option change and updates formData
   const handleOptionChange = (event) => {
     const { value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      "Payment Details": value,
-    }));
     setSelectedOption(value);
   };
 
   return (
     <div className="form-2">
-      <form
-        className="form-radio"
-        style={{
-          "border-color": isSubmitted && !selectedOption ? "red" : "#cfcfcf",
-        }}
-      >
+      <form className="form-radio">
         <input
           type="radio"
           id="e-Money"
@@ -34,12 +23,7 @@ const Form2 = ({ isSubmitted }) => {
         ></input>
         <label htmlFor="e-Money">e-Money</label>
       </form>
-      <form
-        className="form-radio"
-        style={{
-          "border-color": isSubmitted && !selectedOption ? "red" : "#cfcfcf",
-        }}
-      >
+      <form className="form-radio">
         <input
           type="radio"
           id="Cash on Delivery"

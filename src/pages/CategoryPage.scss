@@ -1,6 +1,7 @@
 @import '../index.scss';
 
-.category-page{
+.category-page {
+  @include page-container;
 
   &-header {
     display: flex;
@@ -12,6 +13,12 @@
     background: color(black);
     color: color(white);
     margin-bottom: 0.5em;
+  }
+
+  .go-back-btn {
+    display: block;
+    width: 100%;
+    padding: 0 0 1.25rem;
   }
 
   &-content {

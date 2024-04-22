@@ -1,4 +1,3 @@
-import React from "react";
 import "./Button3.scss";
 
 const Button3 = ({ purpose }) => {

@@ -10,24 +10,27 @@
 
   .open-menu {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    height: 550px;
+    width: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: color(black);
+    border-radius: 50%;
+    transform-origin: top left;
 
     ul {
-        display: flex;
-        flex-direction: column;
-        row-gap: 1.5em;
-        padding: 2.5em;
-        list-style: none;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.5em;
+      padding: 2.5em;
+      list-style: none;
+      text-decoration: none;
 
-        li {
-          color: color(white);
-        }
+      a {
+        color: white;
       }
+    }
   }
 }

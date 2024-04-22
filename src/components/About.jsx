@@ -1,10 +1,9 @@
-import React from "react";
 import "./About.scss";
 
 const About = () => {
   return (
     <section className="about">
-      <img src="/homepage/mobile/about-img.jpg" />
+      <img src="/src/assets/repeat/about-img.jpg" />
       <h2 className="h2-mobile black">
         Bringing you the <span>best</span> audio gear
       </h2>

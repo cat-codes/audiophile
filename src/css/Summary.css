@@ -262,6 +262,7 @@ html {
   flex-direction: row;
   justify-content: space-between;
   opacity: 1;
+  margin-bottom: 8px;
 }
 .summary .label, .summary .price {
   width: -moz-fit-content;

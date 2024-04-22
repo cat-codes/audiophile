@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./ItemPage.scss";
 import { useParams } from "react-router-dom";
 import { shop } from "../Database";
@@ -92,7 +92,7 @@ const ItemPage = () => {
       <section>
         <GoBack />
         <img
-          src={`/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
+          src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
         />
         {currentItem.newProduct && (
           <p className="supertitle accent-color">new product</p>
@@ -132,13 +132,13 @@ const ItemPage = () => {
       </section>
       <section>
         <img
-          src={`/item-page/mobile/${currentItem.img}/${currentItem.img}-1.jpg`}
+          src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-1.jpg`}
         />
         <img
-          src={`/item-page/mobile/${currentItem.img}/${currentItem.img}-2.jpg`}
+          src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-2.jpg`}
         />
         <img
-          src={`/item-page/mobile/${currentItem.img}/${currentItem.img}-3.jpg`}
+          src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-3.jpg`}
         />
       </section>
       <Categories />

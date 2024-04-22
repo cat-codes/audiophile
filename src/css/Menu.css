@@ -198,13 +198,15 @@ html {
 }
 .menu-container .open-menu {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  height: 550px;
+  width: 550px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: black;
+  border-radius: 50%;
+  transform-origin: top left;
 }
 .menu-container .open-menu ul {
   display: flex;
@@ -212,7 +214,8 @@ html {
   row-gap: 1.5em;
   padding: 2.5em;
   list-style: none;
+  text-decoration: none;
 }
-.menu-container .open-menu ul li {
+.menu-container .open-menu ul a {
   color: white;
 }/*# sourceMappingURL=Menu.css.map */

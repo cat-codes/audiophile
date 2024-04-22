@@ -1,4 +1,3 @@
-import React from "react";
 import "./AddSubtract.scss";
 
 const AddSubtract = ({ quantityToHandle, handleSubtract, handleAdd }) => {

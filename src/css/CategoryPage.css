@@ -188,6 +188,12 @@ html {
   scroll-behavior: ease-in-out;
 }
 
+.category-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 1.5em;
+}
 .category-page-header {
   display: flex;
   flex-direction: row;
@@ -198,6 +204,11 @@ html {
   background: black;
   color: white;
   margin-bottom: 0.5em;
+}
+.category-page .go-back-btn {
+  display: block;
+  width: 100%;
+  padding: 0 0 1.25rem;
 }
 .category-page-content {
   display: flex;
