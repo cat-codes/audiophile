@@ -1,20 +1,44 @@
 @import '../index.scss';
+@import './_breakpoints.scss';
 
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-self: flex-end;
-  margin: 8em 0 0;
-  padding: 5em 1.5em;
+  align-self: center;
+  padding: 3em 1.5em;
   box-sizing: border-box;
   background: color(primary-color);
+  margin-top: 5em;
+  width: 100%;
+  max-width: 1200px;
 
-  &-border {
-    position: absolute;
-    top: 0;
-    width: 25%;
-    border: solid 2px color(accent-color);
+  @include tablet {
+    padding-inline: 4em;
+    align-items: flex-start;
+    margin-top: 7em;
+  }
+
+  @include desktop {
+    padding-inline: 8em;
+  }
+
+  &-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @include tablet {
+      align-items: flex-start;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   ul {
@@ -24,22 +48,61 @@
     padding: 2.5em;
     list-style: none;
 
+    @include tablet {
+      flex-direction: row;
+      column-gap: 1.5em;
+      padding-inline: 0;
+      margin-block: 0.5em;
+    }
+
     li {
       color: color(white);
+
+      &:hover {
+        color: color(secondary-accent-color);
+      }
     }
   }
 
-  &-copyright {
-    padding: 3em 0;
-    font-weight: 700;
+  &-text {
+    @include tablet {
+      text-align: left;
+    }
+
+    @include desktop {
+      width: 50%;
+    }
   }
 
-  &-socmedia {
+  &-bottom {
     display: flex;
-    flex-direction: row;
-    gap: 1em;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    width: fit-content;
+    row-gap: 2em;
+    margin-top: 2em;
+
+    @include tablet {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 3.5em;
+    }
+
+    &-copyright {
+      margin-bottom: 2em;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    &-socmedia {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1em;
+      width: fit-content;
+    }
   }
 }

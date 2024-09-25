@@ -1,3 +1,5 @@
+@import "src/components/_breakpoints.scss";
+
 $colors: (
   bg-color: #FAFAFA,
   primary-color: #101010,
@@ -19,35 +21,70 @@ $colors: (
   }
 }
 
+// 100vw items
 @mixin page-container {
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-inline: 1.5em;
+  gap: 0;
+  background-color: #FAFAFA;
 }
 
-@mixin grid {
-  display: grid;
-  grid-template-rows: repeat(3, auto); //TODO adjust responsiveness
+// Content vw items
+@mixin page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding-inline: 1.5em;
+  background-color: color(bg-color);
+  @include tablet {
+    padding-inline: 2.5em;
+  }
+  @include desktop {
+    padding-inline: 8em;
+  }
 }
 
-@mixin grid-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
+// Section spacing 
+@mixin section-spacing {
+  row-gap: 5em;
+
+  @include tablet {
+    row-gap: 5em;
+  }
+
+  @include desktop {
+    row-gap: 8em;
+  }
 }
 
 :root {
   font-family: Manrope;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  background-color: color(bg-color);
 }
 
 body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 h1,
@@ -77,7 +114,7 @@ h6,
   font-weight: 700;
 }
 
-p, //TODO 'total'; cart title, copyright, confirmation item title & qty 700
+p,
 .supertitle {
   font-weight: 400;
 }
@@ -87,41 +124,49 @@ h1, h2, h3, h4, h5, h6, .supertitle, .nav, .btn-qty {
 }
 
 h1 { //* hero heading, ad-grid 1st heading
-  font-size: 56px;
-  line-height: 58px;
-  letter-spacing: 2px;
-}
-
-.h1-mobile {
-  @extend h1;
   font-size: 36px;
-  line-height: 40px;
-  letter-spacing: 1.286px;
+  line-height: 1.1em;
+  letter-spacing: 2px;
+
+  @include tablet {
+    font-size: 36px;
+  }
+
+  @include desktop {
+    font-size: 56px;
+  }
 }
 
-h2 { //* about title, category-page-titles, confirmation
-  font-size: 40px;
-  letter-spacing: 1.429px; //TODO confirmation 1.143
-}
-
-.h2-mobile {
+.h2 {
   font-size: 28px;
-  letter-spacing: 1px; // category 2px, confirmation 0.857px
+  letter-spacing: 1px;
+
+  @include tablet {
+    font-size: 40px;
+  }
 }
 
 h3 { //* 'features', 'in the box', 'you may also like', 'checkout'
-  font-size: 32px;
-  letter-spacing: 1.143px;
-}
-
-.h3-mobile {
   font-size: 24px;
   letter-spacing: 0.857px;
+
+  @include tablet {
+    font-size: 32px;
+    letter-spacing: 1.143px;
+  }
 }
 
 h4 { //* ad-grid 2nd-3rd headings
   font-size: 28px;
   letter-spacing: 2px;
+
+  @include desktop {
+    font-size: 32px;
+  }
+
+  @include desktop {
+    font-size: 40px;
+  }
 }
 
 h5 { //* suggestion headers
@@ -130,13 +175,12 @@ h5 { //* suggestion headers
 }
 
 h6 { //* 'cart', 'summary', total price
-  font-size: 24px;
-  letter-spacing: 1.286px;
-}
-
-.h6-mobile {
   font-size: 15px;
-  letter-spacing: 0.857px;
+  letter-spacing: 1.286px;
+
+  @include desktop {
+    font-size: 18px;
+  }
 }
 
 p {
@@ -148,7 +192,7 @@ p {
 
 .supertitle {
   font-size: 14px;
-  letter-spacing: 10px; //TODO 0.929px 'billing details'
+  letter-spacing: 10px;
 }
 
 .price {
@@ -174,21 +218,24 @@ a {
 }
 
 button {
-  @extend .qty;
+  font-size: 13px;
+  letter-spacing: 1px;
   font-family: Manrope;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: fit-content;
   padding: 1em 2em;
-  transition: background-color 0.1s ease-out, color 0.1s ease-out;
+  transition: background-color 0.05s ease-out, color 0.05s ease-out;
   cursor: pointer;
+}
+
+.svg-anim {
+  transition: fill 0.05s ease;
+  
+  &:hover {
+      fill: color(secondary-accent-color);
+  }
 }
 
 img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
 }
 
 svg {

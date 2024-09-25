@@ -1,38 +1,135 @@
 @import '../index.scss';
+@import '../components/_breakpoints.scss';
 
-.checkout {
+.container {
   @include page-container;
-  text-align: left;
-  align-items: flex-start;
-  background: color(bg-color);
+  padding-inline: 0.25em;
+  
+  .page {
+    @include page;
+    background-color: #FAFAFA;
 
-  &-form
-  {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    width: 100%;
-    padding: 1.5em 2em;
-    margin-top: 1.5em;
-    background: color(white);
-    box-sizing: border-box;
-    border-radius: 8px;
-
-    &-section {
+    .checkout {
+      text-align: left;
       display: flex;
       flex-direction: column;
-      gap: 1em;
-      width: 100%;
-      margin-block: 0.5em;
+      justify-content: center;
+      align-items: center;
+      row-gap: 3em;
 
-      p {
-        opacity: 1;
+      @include desktop {
+        flex-direction: row;
+        align-items: start;
+        column-gap: 2em;
       }
-    }
-  }
 
-  >button {
-    width: 100%;
-    margin-top: 2em;
+      &-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+        background: color(white);
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 1.5em 1em;
+
+        @include tablet {
+          gap: 2em;
+          margin-top: 0;
+          flex: 2;
+        }
+
+        >h4 {
+          margin-bottom: 0.5em;
+        }
+
+        &-section {
+          display: flex;
+          flex-direction: column;
+          gap: 1em;
+          width: 100%;
+          margin-block: 0.5em;
+
+          #optional {
+            margin-top: 1em !important;
+          }
+
+          @include tablet {
+            gap: 2em;
+          }
+
+          p {
+            opacity: 1;
+          }
+
+          &-grid {
+            display: grid;
+            grid-template-columns: repeat(1, auto);
+            grid-template-rows: auto;
+            row-gap: 1.5em;
+
+            .label-payment {
+              font-size: 12px;
+              font-weight: 700;
+              letter-spacing: -0.214px;
+              margin-bottom: 0.5em;
+            }
+
+            @include tablet {
+              grid-template-columns: repeat(2, 1fr);
+              column-gap: 1em;
+              align-items: end;
+            }
+
+            .form-radio {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              border: 1px solid #cfcfcf;
+              padding: 0.85em 1.5em;
+              border-radius: 8px;
+              height: fit-content;
+
+              &:focus-within {
+                outline: 2px solid color(accent-color);           
+              }
+          
+              input {
+                font-weight: 700;
+                line-height: normal;
+                font-size: 14px;
+                letter-spacing: -0.25px;
+                border-radius: 8px;
+                width: fit-content;
+                box-sizing: border-box;
+              }
+            }
+          }
+        }
+      }
+
+      &-summary {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding-bottom: 1.5em;
+        border-radius: 8px;
+        width: 100%;
+
+        @include desktop {
+          flex: 1;
+        }
+        
+        button {
+          width: 85%;
+          color: white;
+          font-weight: 700;
+          text-transform: uppercase;
+          margin-inline: 1.5em;
+        }
+      } 
+    }
   }
 }

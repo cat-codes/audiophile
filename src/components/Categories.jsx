@@ -28,21 +28,21 @@ const Categories = () => {
   };
 
   return (
-    <section className="category">
+    <section className="categories">
       {/* Maps through each category in categories array */}
       {categories.map((category, index) => (
-        <section className="category-item" key={index}>
+        <section className="categories-item" key={index}>
           <img
-            className="category-item-img"
+            className="categories-item-img"
             src={`/src/assets/repeat/category-nav/category-${category}.png`}
             alt={category}
           />
-          <section className="category-item-content">
+          <section className="categories-item-text">
             <Link
               onClick={() => handleClick(`/${category}`)}
               to={`/${category}`}
             >
-              <h6 className="h6-mobile black">{category}</h6>
+              <h6 className="black">{category}</h6>
               <Button3 purpose="shop" />
             </Link>
           </section>

@@ -1,38 +1,110 @@
 @import '../index.scss';
+@import '../components/_breakpoints.scss';
 
-.category-page {
+.container {
   @include page-container;
 
-  &-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    padding: 1em 0;
-    background: color(black);
-    color: color(white);
-    margin-bottom: 0.5em;
-  }
+  .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      max-width: 1200px;
+      padding-block: 1em;
+      background: color(black);
+      color: color(white);
 
-  .go-back-btn {
-    display: block;
-    width: 100%;
-    padding: 0 0 1.25rem;
-  }
+      @include tablet {
+        padding-block: 3.5em;
+      }
 
-  &-content {
-    @include page-container;
-    gap: 7em;
+      @include tablet {
+        padding-block: 2.5em;
+      }
+    }
 
-    &-grid {
-      @include grid;
-      row-gap: 5em;
+  .page {
+    @include page;
+
+    .category {
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      width: 100%;
+      row-gap: 7em;
+      text-align: center;
+
+      @include tablet {
+        row-gap: 5em;
+      }
+
+      @include desktop {
+        row-gap: 8em;
+      }
 
       &-item {
-        @include grid-item;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px;
         justify-content: center;
-        row-gap: 1.5em;
+        row-gap: 1em;
+
+        @include tablet {
+          margin-bottom: 2em;
+        }
+
+        @include desktop {
+          flex-direction: row;
+          column-gap: 5em;
+          margin-bottom: 0;
+
+          &-reverse {
+            flex-direction: row-reverse;
+          }
+        }
+
+        picture {
+          width: 100%;
+          padding-bottom: 1em;
+          
+          img {
+            border-radius: 8px;
+          }
+        }
+
+        &-text {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          row-gap: 1.5em;
+
+          @include desktop {
+            align-items: start;
+            text-align: left;
+          }
+
+          .supertitle {
+            width: fit-content;
+          }
+
+          >h2 {
+            @include tablet{
+              width: 50%;
+            }
+            @include desktop{
+              width: 75%;
+            }
+          }
+
+          >p {
+            @include tablet{
+              width: 75%;
+            }
+            @include desktop{
+              width: 85%;
+            }
+          }
+        }
       }
     }
   }

@@ -27,37 +27,47 @@ const Footer = () => {
   return (
     <section className="footer">
       <div className="footer-border" />
-      <Logo />
-      <section className="nav white">
-        <ul>
-          <Link onClick={() => handleClick("/home")} to={"/home"}>
-            <li>home</li>
-          </Link>
-          <Link onClick={() => handleClick("/headphones")} to={"/headphones"}>
-            <li>headphones</li>
-          </Link>
-          <Link onClick={() => handleClick("/speakers")} to={"/speakers"}>
-            <li>speakers</li>
-          </Link>
-          <Link onClick={() => handleClick("/earphones")} to={"/earphones"}>
-            <li>earphones</li>
-          </Link>
-        </ul>
-      </section>
-      <p className="white">
+      <div className="footer-nav">
+        <Logo />
+        <section className="nav white">
+          <ul>
+            <Link onClick={() => handleClick("/home")} to={"/home"}>
+              <li>home</li>
+            </Link>
+            <Link onClick={() => handleClick("/headphones")} to={"/headphones"}>
+              <li>headphones</li>
+            </Link>
+            <Link onClick={() => handleClick("/speakers")} to={"/speakers"}>
+              <li>speakers</li>
+            </Link>
+            <Link onClick={() => handleClick("/earphones")} to={"/earphones"}>
+              <li>earphones</li>
+            </Link>
+          </ul>
+        </section>
+      </div>
+      <p className="footer-text white">
         Audiophile is an all in one stop to fulfill your audio needs. We're a
         small team of music lovers and sound specialists who are devoted to
         helping you get the most out of personal audio. Come and visit our demo
         facility - we’re open 7 days a week.
       </p>
-      <p className="footer-copyright white">
-        Copyright 2021. All Rights Reserved
-      </p>
-      <section className="footer-socmedia">
-        <Facebook />
-        <Twitter />
-        <Instagram />
-      </section>
+      <div className="footer-bottom">
+        <p className="footer-bottom-copyright white">
+          Copyright 2021. All Rights Reserved
+        </p>
+        <section className="footer-bottom-socmedia">
+          <div>
+            <Facebook />
+          </div>
+          <div>
+            <Twitter />
+          </div>
+          <div>
+            <Instagram />
+          </div>
+        </section>
+      </div>
     </section>
   );
 };

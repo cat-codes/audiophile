@@ -1,0 +1,6 @@
+.cart-icon {
+  transition: fill 0.05s ease;
+}
+.cart-icon:hover {
+  fill: color(secondary-accent-color);
+}/*# sourceMappingURL=CartIcon.css.map */

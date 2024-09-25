@@ -88,61 +88,142 @@ const ItemPage = () => {
   console.log("updatedCart: ", cart);
 
   return (
-    <div className="item-page">
-      <section>
+    <div className="container">
+      <div className="page">
         <GoBack />
-        <img
-          src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
-        />
-        {currentItem.newProduct && (
-          <p className="supertitle accent-color">new product</p>
-        )}
-        <h4>{currentItem.itemName}</h4>
-        <p className="black">{currentItem.description}</p>
-        <p className="price">{currentItem.priceStr}</p>
+        <div className="itempage">
+          <section className="itempage-top">
+            <picture>
+              {/* Desktop image */}
+              <source
+                media="(min-width: 1240px)"
+                srcSet={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
+                sizes="100vw" // 100% of the viewport width
+              />
+              {/* Tablet image */}
+              <source
+                media="(min-width: 768px)"
+                srcSet={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
+                sizes="100vw"
+              />
+              {/* Mobile image */}
+              <img
+                src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
+                alt="Item Photo"
+                sizes="100vw"
+              />
+            </picture>
+            <div className="itempage-top-text">
+              {currentItem.newProduct && (
+                <p className="supertitle accent-color">new product</p>
+              )}
+              <h4>{currentItem.itemName}</h4>
+              <p className="black">{currentItem.description}</p>
+              <p className="price">{currentItem.priceStr}</p>
 
-        <section className="buttons">
-          <AddSubtract
-            quantityToHandle={quantityToAdd}
-            handleAdd={handleQuantityToAdd}
-            handleSubtract={handleQuantityToSubtract}
-          />
+              <section className="buttons">
+                <AddSubtract
+                  quantityToHandle={quantityToAdd}
+                  handleAdd={handleQuantityToAdd}
+                  handleSubtract={handleQuantityToSubtract}
+                />
 
-          <Button1
-            purpose={"add to cart"}
-            onClick={() => handleAddToCart(currentItem)}
-            aria-label="Add to cart"
-          />
-        </section>
-      </section>
-      <section>
-        <h4>features</h4>
-        <p>{currentItem.features}</p>
-      </section>
-      <section>
-        <h4>in the box</h4>
-        <ul>
-          {currentItem.contents.map((content, index) => (
-            <li key={index}>
-              <p className="accent-color contentQty">{content.qty}</p>
-              <p>{content.name}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section>
-        <img
-          src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-1.jpg`}
-        />
-        <img
-          src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-2.jpg`}
-        />
-        <img
-          src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-3.jpg`}
-        />
-      </section>
-      <Categories />
-      <About />
+                <Button1
+                  purpose={"add to cart"}
+                  onClick={() => handleAddToCart(currentItem)}
+                  aria-label="Add to cart"
+                />
+              </section>
+            </div>
+          </section>
+
+          <div className="itempage-middle">
+            <div className="itempage-middle-features">
+              <h3>features</h3>
+              <p>{currentItem.features}</p>
+            </div>
+            <div className="itempage-middle-inthebox">
+              <h3>in the box</h3>
+              <ul>
+                {currentItem.contents.map((content, index) => (
+                  <li key={index}>
+                    <p className="accent-color contentQty">{content.qty}</p>
+                    <p>{content.name}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <section className="itempage-bottom">
+            <div className="itempage-bottom-group">
+              <picture>
+                {/* Desktop image */}
+                <source
+                  media="(min-width: 1240px)"
+                  srcSet={`/src/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-1.jpg`}
+                  sizes="100vw" // 100% of the viewport width
+                />
+                {/* Tablet image */}
+                <source
+                  media="(min-width: 768px)"
+                  srcSet={`/src/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-1.jpg`}
+                  sizes="100vw"
+                />
+                {/* Mobile image */}
+                <img
+                  src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-1.jpg`}
+                  alt="Item Photo"
+                  sizes="100vw"
+                />
+              </picture>
+
+              <picture>
+                {/* Desktop image */}
+                <source
+                  media="(min-width: 1240px)"
+                  srcSet={`/src/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-2.jpg`}
+                  sizes="100vw" // 100% of the viewport width
+                />
+                {/* Tablet image */}
+                <source
+                  media="(min-width: 768px)"
+                  srcSet={`/src/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-2.jpg`}
+                  sizes="100vw"
+                />
+                {/* Mobile image */}
+                <img
+                  src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-2.jpg`}
+                  alt="Item Photo"
+                  sizes="100vw"
+                />
+              </picture>
+            </div>
+            <picture>
+              {/* Desktop image */}
+              <source
+                media="(min-width: 1240px)"
+                srcSet={`/src/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-3.jpg`}
+                sizes="100vw" // 100% of the viewport width
+              />
+              {/* Tablet image */}
+              <source
+                media="(min-width: 768px)"
+                srcSet={`/src/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-3.jpg`}
+                sizes="100vw"
+              />
+              {/* Mobile image */}
+              <img
+                src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-3.jpg`}
+                alt="Item Photo"
+                sizes="100vw"
+              />
+            </picture>
+          </section>
+          <Categories />
+          <About />
+        </div>
+      </div>
     </div>
   );
 };

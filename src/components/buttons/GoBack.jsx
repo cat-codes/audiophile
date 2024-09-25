@@ -9,9 +9,11 @@ const GoBack = () => {
   };
 
   return (
-    <button className="black go-back" type="button" onClick={goBack}>
-      Go Back
-    </button>
+    <div className="back">
+      <button className="black" type="button" onClick={goBack}>
+        Go Back
+      </button>
+    </div>
   );
 };
 

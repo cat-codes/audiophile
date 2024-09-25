@@ -1,8 +1,10 @@
 import React from "react";
+import "../../index.scss";
 
 const Cart = () => {
   return (
     <svg
+      className="svg-anim"
       stroke="white"
       fill="white"
       strokeWidth="0"

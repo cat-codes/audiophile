@@ -3,6 +3,7 @@ import React from "react";
 const Facebook = () => {
   return (
     <svg
+      className="svg-anim"
       stroke="currentColor"
       fill="white"
       strokeWidth="0"

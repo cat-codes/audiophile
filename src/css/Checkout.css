@@ -38,7 +38,6 @@ body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 h1, .h1-mobile,
@@ -150,7 +149,7 @@ p {
   letter-spacing: 2px;
 }
 
-.qty, button {
+.qty {
   font-size: 13px;
   letter-spacing: 1px;
 }
@@ -163,12 +162,9 @@ a {
 }
 
 button {
+  font-size: 13px;
+  letter-spacing: 1px;
   font-family: Manrope;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: -moz-fit-content;
-  width: fit-content;
   padding: 1em 2em;
   transition: background-color 0.1s ease-out, color 0.1s ease-out;
   cursor: pointer;
@@ -193,6 +189,8 @@ html {
   flex-direction: column;
   align-items: center;
   padding-inline: 1.5em;
+  box-sizing: border-box;
+  overflow-x: hidden;
   text-align: left;
   align-items: flex-start;
   background: #FAFAFA;
@@ -218,7 +216,33 @@ html {
 .checkout-form-section p {
   opacity: 1;
 }
-.checkout > button {
+.checkout .form-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+.checkout .form-2 .form-radio {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #cfcfcf;
+  padding: 0.85em 1.5em;
+  border-radius: 8px;
+}
+.checkout .form-2 .form-radio input {
+  font-weight: 700;
+  line-height: normal;
+  font-size: 14px;
+  letter-spacing: -0.25px;
+  border-radius: 8px;
+  width: -moz-fit-content;
+  width: fit-content;
+  box-sizing: border-box;
+}
+.checkout button {
   width: 100%;
   margin-top: 2em;
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
 }/*# sourceMappingURL=Checkout.css.map */

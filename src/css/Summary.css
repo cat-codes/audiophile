@@ -38,7 +38,6 @@ body {
   margin: 0;
   min-width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 h1, .h1-mobile,
@@ -150,7 +149,7 @@ p {
   letter-spacing: 2px;
 }
 
-.qty, button {
+.qty {
   font-size: 13px;
   letter-spacing: 1px;
 }
@@ -163,12 +162,9 @@ a {
 }
 
 button {
+  font-size: 13px;
+  letter-spacing: 1px;
   font-family: Manrope;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: -moz-fit-content;
-  width: fit-content;
   padding: 1em 2em;
   transition: background-color 0.1s ease-out, color 0.1s ease-out;
   cursor: pointer;
@@ -193,6 +189,8 @@ html {
   flex-direction: column;
   align-items: center;
   padding-inline: 1.5em;
+  box-sizing: border-box;
+  overflow-x: hidden;
   text-align: left;
   align-items: flex-start;
   width: 100%;

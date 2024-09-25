@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Cart.scss";
 import { Link } from "react-router-dom";
 import CartIcon from "../assets/svg/CartIcon";
@@ -10,9 +10,33 @@ import AddSubtract from "./buttons/AddSubtract";
 
 const Cart = () => {
   const { cart, setCart } = GetCart();
-
   const [openCart, setOpenCart] = useState(false);
   const [checkoutClicked, setCheckoutClicked] = useState(false);
+
+  // Reference to the cart menu
+  const cartRef = useRef(null);
+
+  // Close the cart when clicking outside of the cart element
+  useEffect(() => {
+    function handleClickOutside(event) {
+      // If the cart is open and the click is outside the cart, close the cart
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        setOpenCart(false);
+      }
+    }
+
+    if (openCart) {
+      // Add event listener to detect clicks outside
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      // Remove event listener when the cart is closed
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openCart]);
 
   // Toggles cart menu
   const handleCart = () => {
@@ -63,10 +87,9 @@ const Cart = () => {
       scale: 1,
       opacity: 1,
       width: "90vw",
-      height: "60vh",
       y: "-15%",
       borderRadius: "8px",
-      transformOrigin: "top right",
+      transformOrigin: "center",
     },
     closed: {
       scale: 0,
@@ -85,6 +108,7 @@ const Cart = () => {
             <>
               {/* Overlay */}
               <motion.div
+                ref={cartRef}
                 key="overlay"
                 initial={{ opacity: 0, height: "100vh", width: "100vw" }}
                 animate={{
@@ -145,7 +169,7 @@ const Cart = () => {
                   <p className="open-cart-total-price">{`$ ${totalPrice}`}</p>
                 </section>
                 <div
-                  className="buttn"
+                  className="open-cart-button"
                   style={{
                     pointerEvents: isCartEmpty ? "none" : "auto",
                     opacity: isCartEmpty ? "0.5" : "1",

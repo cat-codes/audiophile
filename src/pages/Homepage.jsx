@@ -7,11 +7,15 @@ import Ads from "../components/Ads";
 
 const Homepage = () => {
   return (
-    <div className="home-container">
+    <div className="container">
       <Hero />
-      <Categories />
-      <Ads />
-      <About />
+      <div className="page">
+        <div className="contents">
+          <Categories />
+          <Ads />
+          <About />
+        </div>
+      </div>
     </div>
   );
 };

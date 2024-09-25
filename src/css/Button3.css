@@ -31,20 +31,11 @@
 }
 
 :root {
-  color: black;
-  background-color: white;
-  box-sizing: border-box;
   font-family: Manrope;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  box-sizing: border-box;
   margin: 0;
-  display: flex;
   min-width: 100vw;
   min-height: 100vh;
 }
@@ -61,7 +52,6 @@ p,
 .nav-font,
 .btn-qty-font {
   margin: 0;
-  padding: 0;
 }
 
 h1, .h1-mobile,
@@ -151,6 +141,7 @@ p {
 
 .price {
   font-size: 14px;
+  opacity: 1;
 }
 
 .nav {
@@ -158,7 +149,7 @@ p {
   letter-spacing: 2px;
 }
 
-.qty, button {
+.qty {
   font-size: 13px;
   letter-spacing: 1px;
 }
@@ -171,12 +162,9 @@ a {
 }
 
 button {
+  font-size: 13px;
+  letter-spacing: 1px;
   font-family: Manrope;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: -moz-fit-content;
-  width: fit-content;
   padding: 1em 2em;
   transition: background-color 0.1s ease-out, color 0.1s ease-out;
   cursor: pointer;
@@ -190,6 +178,10 @@ img {
 
 svg {
   cursor: pointer;
+}
+
+html {
+  scroll-behavior: ease-in-out;
 }
 
 .button3 {

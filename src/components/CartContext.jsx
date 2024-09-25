@@ -26,8 +26,15 @@ export const CartProvider = ({ children }) => {
     .map((item) => item.quantity)
     .reduce((accumulator, currentItem) => accumulator + currentItem, 0);
 
+  // Function to update cart
+  const updateCart = (newCart) => {
+    setCart(newCart);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, setCart, totalPrice, totalQty }}>
+    <CartContext.Provider
+      value={{ cart, setCart, updateCart, totalPrice, totalQty }}
+    >
       {children}
     </CartContext.Provider>
   );

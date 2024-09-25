@@ -1,16 +1,54 @@
 @import '../index.scss';
+@import './_breakpoints.scss';
 
 nav {
   z-index: 100;
   display: flex;
   flex-direction: row;
   align-items: center;
+  align-self: center;
   justify-content: space-between;
   padding: 2em;
   width: 100%;
+  max-width: 1200px;
   box-sizing: border-box;
   background: color(black);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  @include desktop {
+    justify-content: space-around;
+  }
+
+  .menu-desktop {
+    @include mobile {
+      display: none;
+    }
+    
+    @include desktop {
+      display: block;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2.5em;
+        list-style: none;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        font-family: Manrope;
+        letter-spacing:  2px;;
+
+        a {
+          color: white;
+
+          &:hover {
+            color: color(secondary-accent-color);
+          }
+        }
+      }
+    }
+  }
 
   >button {
     background: none;

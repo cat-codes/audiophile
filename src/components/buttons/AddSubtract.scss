@@ -8,7 +8,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: color(bg-color);
+  background: color(secondary-color);
 
   p,
   button {
@@ -20,9 +20,15 @@
 
   p {
     opacity: 1;
+    padding-inline: 1em;
   }
 
   button {
     opacity: 0.25;
+    padding-inline: 1.5em;
+
+    &:hover {
+      background-color: lightgrey;
+    }
   }
 }

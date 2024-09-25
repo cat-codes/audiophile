@@ -21,10 +21,14 @@ form {
     border: 1px solid #cfcfcf;
     width: 100%;
     box-sizing: border-box;
-  }
 
-  input::placeholder {
-    font-size: 14px;
-    opacity: 0.4;
+    &::placeholder {
+      font-size: 14px;
+      opacity: 0.4;
+    }
+
+    &:focus {
+      outline-color: color(accent-color);
+    }
   }
 }

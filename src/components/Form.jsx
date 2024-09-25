@@ -1,10 +1,17 @@
 import "./Form.scss";
 
-const Form = ({ label, placeholder, type }) => {
+const Form = ({ label, placeholder, type, name, value, onChange }) => {
   return (
     <form className="black">
-      <label htmlFor={label}>{label}</label>
-      <input type={type} placeholder={placeholder} name={label} />
+      <label htmlFor={name}>{label}</label>
+      <input
+        id={name}
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
     </form>
   );
 };

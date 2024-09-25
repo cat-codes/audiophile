@@ -35,7 +35,7 @@ const Menu = () => {
   }, [location]);
 
   return (
-    <button type="button" onClick={() => handleMenu()}>
+    <button type="button" className="menu-mobile" onClick={() => handleMenu()}>
       <MenuIcon />
       <div className="menu-container">
         <AnimatePresence>

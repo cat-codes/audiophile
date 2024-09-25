@@ -3,13 +3,62 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: 2.5em;
   justify-content: center;
 
-  box-sizing: border-box;
+  @include desktop {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
 
-  h2 {
-    padding: 0 0.75em;
+  picture {
+    margin-bottom: 2.5em;
+
+    @include desktop {
+      flex: 1;
+    }
+
+    img{
+      border-radius: 8px;
+    }
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include desktop {
+      flex: 1;
+      align-items: start;
+    }
+
+    h2 {
+      padding: 0 0.75em 1em;
+      text-align: center;
+
+      @include tablet {
+        width: 75%;
+      }
+
+      @include desktop {
+        text-align: left;
+        padding-inline: 0;
+        width: 85%;
+      }
+    }
+  
+    p {
+      text-align: center;
+
+      @include tablet {
+        width: 75%;
+      }
+
+      @include desktop {
+        text-align: left;
+        width: 85%;
+      }
+    }
   }
 
   span {

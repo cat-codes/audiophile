@@ -2,7 +2,7 @@ import "./RemoveAll.scss";
 import { GetCart } from "../CartContext";
 
 const RemoveAll = () => {
-  const { cart, updateCart } = GetCart();
+  const { updateCart } = GetCart();
 
   const handleRemoveAll = () => {
     updateCart([]);

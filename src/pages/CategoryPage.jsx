@@ -5,11 +5,8 @@ import Categories from "../components/Categories";
 import About from "../components/About";
 import Button1 from "../components/buttons/Button1";
 import GoBack from "../components/buttons/GoBack";
-// import { GetItem } from "../components/ItemContext";
 
 const CategoryPage = () => {
-  // const { items } = GetItem();
-
   // Refers to "category" in Route path in App.js
   const { category } = useParams();
 
@@ -18,36 +15,60 @@ const CategoryPage = () => {
   console.log("categoryItems: ", categoryItems);
 
   return (
-    <div className="category-page">
-      <h4 className="category-page-header">{category}</h4>
-      <div className="go-back-btn">
+    <div className="container">
+      <h4 className="header">{category}</h4>
+      <div className="page">
         <GoBack />
-      </div>
-      <div className="category-page-content">
-        <div className="category-page-content-grid">
+        <div className="category">
           {/* Maps thorugh each item in items array and displays each item of the particular category on the page*/}
           {categoryItems.map((item, index) => (
-            <section className="category-page-content-grid-item" key={index}>
-              <img
-                src={`src/assets/item-page/mobile/${shop.categories[category][item].img}/${shop.categories[category][item].img}-preview.jpg`}
-              />
-              {/* Checks if it's a new product and adds a supertitle accordingly */}
-              {shop.categories[category][item].newProduct && (
-                <p className="supertitle accent-color">new product</p>
-              )}
-              {/* Item's title */}
-              <h2 className="h2-mobile">{item}</h2>
-              {/* Item's description */}
-              <p>{shop.categories[category][item].description}</p>
-              {/* Links to the item's page; "img" refers to the item's image name in assets */}
-              <Link to={`/${category}/${shop.categories[category][item].img}`}>
-                <Button1 purpose={"see product"} />
-              </Link>
+            <section
+              className={`category-item ${
+                index % 2 !== 0 ? "category-item-reverse" : ""
+              }`}
+              key={index}
+            >
+              <picture>
+                {/* Desktop image */}
+                <source
+                  media="(min-width: 1240px)"
+                  srcSet={`src/assets/category-page/desktop/${shop.categories[category][item].img}.jpg`}
+                  sizes="100vw" // 100% of the viewport width
+                />
+                {/* Tablet image */}
+                <source
+                  media="(min-width: 768px)"
+                  srcSet={`src/assets/category-page/tablet/${shop.categories[category][item].img}.jpg`}
+                  sizes="100vw"
+                />
+                {/* Mobile image */}
+                <img
+                  src={`src/assets/category-page/mobile/${shop.categories[category][item].img}.jpg`}
+                  alt="Category Photo"
+                  sizes="100vw"
+                />
+              </picture>
+              <div className="category-item-text">
+                {/* Checks if it's a new product and adds a supertitle accordingly */}
+                {shop.categories[category][item].newProduct && (
+                  <p className="supertitle accent-color">new product</p>
+                )}
+                {/* Item's title */}
+                <h2 className="h2">{item}</h2>
+                {/* Item's description */}
+                <p>{shop.categories[category][item].description}</p>
+                {/* Links to the item's page; "img" refers to the item's image name in assets */}
+                <Link
+                  to={`/${category}/${shop.categories[category][item].img}`}
+                >
+                  <Button1 purpose={"see product"} />
+                </Link>
+              </div>
             </section>
           ))}
+          <Categories />
+          <About />
         </div>
-        <Categories />
-        <About />
       </div>
     </div>
   );
