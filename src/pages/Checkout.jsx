@@ -7,7 +7,10 @@ import Submit from "../components/buttons/Submit";
 import OrderConfirm from "../components/OrderConfirm";
 
 const Checkout = () => {
-  // State to track form fields
+  const [openConfirm, setOpenConfirm] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("e-Money");
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,10 +22,26 @@ const Checkout = () => {
     eMoneyNumber: "",
     eMoneyPin: "",
   });
-  const [openConfirm, setOpenConfirm] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("e-Money");
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Resets confirmation overlay state to false when the component mounts
+  useEffect(() => {
+    setOpenConfirm(false);
+  }, []);
+
+  // Enables the submit button based on form validation
+  useEffect(() => {
+    console.log("Form data:", formData);
+  }, [formData, selectedOption]);
+
+  // Opens confirmation overlay after form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+
+    if (validateForm()) {
+      setOpenConfirm(true);
+    }
+  };
 
   // Creates refs for the form fields
   const nameRef = useRef(null);
@@ -35,69 +54,61 @@ const Checkout = () => {
   const eMoneyNumberRef = useRef(null);
   const eMoneyPinRef = useRef(null);
 
-  // Resetts openConfirm when the component mounts
-  useEffect(() => {
-    setOpenConfirm(false);
-  }, []);
-
-  // Enables the submit button based on form validation
-  useEffect(() => {
-    console.log("Form data:", formData);
-  }, [formData, selectedOption]);
-
-  // Opens confirmation after submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-
-    console.log("isSubmitted: ", isSubmitted);
-
-    if (validateForm()) {
-      setOpenConfirm(true);
-    } else {
-      setTimeout(scrollToError, 0);
-    }
-  };
-
   // Scroll to the first error
   const scrollToError = () => {
     if (formErrors.name) {
-      nameRef.current.scrollIntoView({ behavior: "smooth" });
+      nameRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     } else if (formErrors.email) {
-      emailRef.current.scrollIntoView({ behavior: "smooth" });
+      emailRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     } else if (formErrors.phone) {
-      phoneRef.current.scrollIntoView({ behavior: "smooth" });
+      phoneRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     } else if (formErrors.address) {
-      addressRef.current.scrollIntoView({ behavior: "smooth" });
+      addressRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     } else if (formErrors.zip) {
-      zipRef.current.scrollIntoView({ behavior: "smooth" });
+      zipRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     } else if (formErrors.city) {
-      cityRef.current.scrollIntoView({ behavior: "smooth" });
+      cityRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
     } else if (formErrors.country) {
-      countryRef.current.scrollIntoView({ behavior: "smooth" });
+      countryRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     } else if (formErrors.eMoneyNumber) {
-      eMoneyNumberRef.current.scrollIntoView({ behavior: "smooth" });
+      eMoneyNumberRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     } else if (formErrors.eMoneyPin) {
-      eMoneyPinRef.current.scrollIntoView({ behavior: "smooth" });
+      eMoneyPinRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
   };
 
-  console.log("isSubmitted: ", isSubmitted);
-  console.log("openConfirm: ", openConfirm);
+  // Scrolls to the first error after submission
+  useEffect(() => {
+    if (isSubmitted && Object.keys(formErrors).length > 0) {
+      scrollToError();
+    }
+  }, [isSubmitted]);
 
-  // Gets form input
+  // Gets form input for formData and clears erros when typing
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
 
     // Clears the specific error for the input field being changed
     setFormErrors((prevErrors) => ({
       ...prevErrors,
       [name]: undefined, // Clear the specific error message for this field
-    }));
-
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
     }));
   };
 
