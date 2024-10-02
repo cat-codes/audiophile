@@ -7,18 +7,18 @@ const About = () => {
         {/* Desktop image */}
         <source
           media="(min-width: 1240px)"
-          srcSet="/src/assets/repeat/about/desktop/about.jpg"
+          srcSet="/assets/repeat/about/desktop/about.jpg"
           sizes="100vw" // 100% of the viewport width
         />
         {/* Tablet image */}
         <source
           media="(min-width: 768px)"
-          srcSet="/src/assets/repeat/about/tablet/about.jpg"
+          srcSet="/assets/repeat/about/tablet/about.jpg"
           sizes="100vw"
         />
         {/* Mobile image */}
         <img
-          src="/src/assets/repeat/about/mobile/about.jpg"
+          src="/assets/repeat/about/mobile/about.jpg"
           alt="About"
           sizes="100vw"
         />

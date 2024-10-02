@@ -97,18 +97,18 @@ const ItemPage = () => {
               {/* Desktop image */}
               <source
                 media="(min-width: 1240px)"
-                srcSet={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
+                srcSet={`/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
                 sizes="100vw" // 100% of the viewport width
               />
               {/* Tablet image */}
               <source
                 media="(min-width: 768px)"
-                srcSet={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
+                srcSet={`/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
                 sizes="100vw"
               />
               {/* Mobile image */}
               <img
-                src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
+                src={`/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-0.jpg`}
                 alt="Item Photo"
                 sizes="100vw"
               />
@@ -161,18 +161,18 @@ const ItemPage = () => {
                 {/* Desktop image */}
                 <source
                   media="(min-width: 1240px)"
-                  srcSet={`/src/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-1.jpg`}
+                  srcSet={`/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-1.jpg`}
                   sizes="100vw" // 100% of the viewport width
                 />
                 {/* Tablet image */}
                 <source
                   media="(min-width: 768px)"
-                  srcSet={`/src/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-1.jpg`}
+                  srcSet={`/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-1.jpg`}
                   sizes="100vw"
                 />
                 {/* Mobile image */}
                 <img
-                  src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-1.jpg`}
+                  src={`/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-1.jpg`}
                   alt="Item Photo"
                   sizes="100vw"
                 />
@@ -182,18 +182,18 @@ const ItemPage = () => {
                 {/* Desktop image */}
                 <source
                   media="(min-width: 1240px)"
-                  srcSet={`/src/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-2.jpg`}
+                  srcSet={`/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-2.jpg`}
                   sizes="100vw" // 100% of the viewport width
                 />
                 {/* Tablet image */}
                 <source
                   media="(min-width: 768px)"
-                  srcSet={`/src/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-2.jpg`}
+                  srcSet={`/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-2.jpg`}
                   sizes="100vw"
                 />
                 {/* Mobile image */}
                 <img
-                  src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-2.jpg`}
+                  src={`/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-2.jpg`}
                   alt="Item Photo"
                   sizes="100vw"
                 />
@@ -203,18 +203,18 @@ const ItemPage = () => {
               {/* Desktop image */}
               <source
                 media="(min-width: 1240px)"
-                srcSet={`/src/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-3.jpg`}
+                srcSet={`/assets/item-page/desktop/${currentItem.img}/${currentItem.img}-3.jpg`}
                 sizes="100vw" // 100% of the viewport width
               />
               {/* Tablet image */}
               <source
                 media="(min-width: 768px)"
-                srcSet={`/src/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-3.jpg`}
+                srcSet={`/assets/item-page/tablet/${currentItem.img}/${currentItem.img}-3.jpg`}
                 sizes="100vw"
               />
               {/* Mobile image */}
               <img
-                src={`/src/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-3.jpg`}
+                src={`/assets/item-page/mobile/${currentItem.img}/${currentItem.img}-3.jpg`}
                 alt="Item Photo"
                 sizes="100vw"
               />

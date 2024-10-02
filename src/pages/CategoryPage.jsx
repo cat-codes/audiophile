@@ -32,18 +32,18 @@ const CategoryPage = () => {
                 {/* Desktop image */}
                 <source
                   media="(min-width: 1240px)"
-                  srcSet={`src/assets/category-page/desktop/${shop.categories[category][item].img}.jpg`}
+                  srcSet={`/assets/category-page/desktop/${shop.categories[category][item].img}.jpg`}
                   sizes="100vw" // 100% of the viewport width
                 />
                 {/* Tablet image */}
                 <source
                   media="(min-width: 768px)"
-                  srcSet={`src/assets/category-page/tablet/${shop.categories[category][item].img}.jpg`}
+                  srcSet={`/assets/category-page/tablet/${shop.categories[category][item].img}.jpg`}
                   sizes="100vw"
                 />
                 {/* Mobile image */}
                 <img
-                  src={`src/assets/category-page/mobile/${shop.categories[category][item].img}.jpg`}
+                  src={`/assets/category-page/mobile/${shop.categories[category][item].img}.jpg`}
                   alt="Category Photo"
                   sizes="100vw"
                 />

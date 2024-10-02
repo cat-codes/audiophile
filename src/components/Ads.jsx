@@ -10,18 +10,18 @@ const Ads = () => {
           {/* Desktop image */}
           <source
             media="(min-width: 1240px)"
-            srcSet="src/assets/homepage/desktop/ad-ZX9-speaker.png"
+            srcSet="/assets/homepage/desktop/ad-ZX9-speaker.png"
             sizes="100vw" // 100% of the viewport width
           />
           {/* Tablet image */}
           <source
             media="(min-width: 768px)"
-            srcSet="src/assets/homepage/tablet/ad-ZX9-speaker.png"
+            srcSet="/assets/homepage/tablet/ad-ZX9-speaker.png"
             sizes="100vw"
           />
           {/* Mobile image */}
           <img
-            src="src/assets/homepage/mobile/ad-ZX9-speaker.png"
+            src="/assets/homepage/mobile/ad-ZX9-speaker.png"
             alt="ZX9 Speaker"
             sizes="100vw"
           />
@@ -43,18 +43,18 @@ const Ads = () => {
           {/* Desktop image */}
           <source
             media="(min-width: 1240px)"
-            srcSet="src/assets/homepage/desktop/ad-ZX7-speaker.jpg"
+            srcSet="/assets/homepage/desktop/ad-ZX7-speaker.jpg"
             sizes="100vw"
           />
           {/* Tablet image */}
           <source
             media="(min-width: 768px)"
-            srcSet="src/assets/homepage/tablet/ad-ZX7-speaker.jpg"
+            srcSet="/assets/homepage/tablet/ad-ZX7-speaker.jpg"
             sizes="100vw"
           />
           {/* Mobile image */}
           <img
-            src="src/assets/homepage/mobile/ad-ZX7-speaker.jpg"
+            src="/assets/homepage/mobile/ad-ZX7-speaker.jpg"
             alt="ZX7 Speaker"
             sizes="100vw"
           />
@@ -72,18 +72,18 @@ const Ads = () => {
           {/* Desktop image */}
           <source
             media="(min-width: 1240px)"
-            srcSet="src/assets/homepage/desktop/ad-YX1-earphones.jpg"
+            srcSet="/assets/homepage/desktop/ad-YX1-earphones.jpg"
             sizes="100vw" // 100% of the viewport width
           />
           {/* Tablet image */}
           <source
             media="(min-width: 768px)"
-            srcSet="src/assets/homepage/tablet/ad-YX1-earphones.jpg"
+            srcSet="/assets/homepage/tablet/ad-YX1-earphones.jpg"
             sizes="100vw"
           />
           {/* Mobile image */}
           <img
-            src="src/assets/homepage/mobile/ad-YX1-earphones.jpg"
+            src="/assets/homepage/mobile/ad-YX1-earphones.jpg"
             alt="YX1 Earphones"
             sizes="100vw"
           />

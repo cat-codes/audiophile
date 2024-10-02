@@ -18,7 +18,7 @@ const Summary = () => {
               <section className="summary-items-list-left">
                 <img
                   className="item-img"
-                  src={`/src/assets/item-page/mobile/${item.img}/${item.img}-preview.jpg`}
+                  src={`/assets/item-page/mobile/${item.img}/${item.img}-preview.jpg`}
                 />
                 <section className="item-info">
                   <p className="item-info-title black">{item.short}</p>

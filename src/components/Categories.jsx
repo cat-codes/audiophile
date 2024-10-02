@@ -34,7 +34,7 @@ const Categories = () => {
         <section className="categories-item" key={index}>
           <img
             className="categories-item-img"
-            src={`/src/assets/repeat/category-nav/category-${category}.png`}
+            src={`/assets/repeat/category-nav/category-${category}.png`}
             alt={category}
           />
           <section className="categories-item-text">

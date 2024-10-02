@@ -136,7 +136,7 @@ const Cart = () => {
                       <div className="item-left">
                         <img
                           className="item-left-img"
-                          src={`/src/assets/item-page/mobile/${item.img}/${item.img}-preview.jpg`}
+                          src={`/assets/item-page/mobile/${item.img}/${item.img}-preview.jpg`}
                         />
                         <section className="item-left-info">
                           <p className="item-left-info-title black">
