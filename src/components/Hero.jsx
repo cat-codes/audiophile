@@ -9,18 +9,18 @@ const Hero = () => {
         {/* Desktop image */}
         <source
           media="(min-width: 1240px)"
-          srcSet="src/assets/homepage/desktop/hero-img.jpg"
+          srcSet="/assets/homepage/desktop/hero-img.jpg"
           sizes="100vw" // 100% of the viewport width
         />
         {/* Tablet image */}
         <source
           media="(min-width: 768px)"
-          srcSet="src/assets/homepage/tablet/hero-img.jpg"
+          srcSet="/assets/homepage/tablet/hero-img.jpg"
           sizes="100vw"
         />
         {/* Mobile image */}
         <img
-          src="src/assets/homepage/mobile/hero-img.jpg"
+          src="/assets/homepage/mobile/hero-img.jpg"
           alt="XX99 Mark II Headphones"
           sizes="100vw"
         />
