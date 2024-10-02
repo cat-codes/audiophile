@@ -7,16 +7,7 @@ const Submit = ({ onClick, disabled }) => {
   };
 
   return (
-    <button
-      className="button1"
-      type="submit"
-      onClick={handleClick}
-      disabled={disabled}
-      style={{
-        opacity: disabled ? 0.5 : 1,
-        cursor: disabled ? "not-allowed" : "pointer",
-      }}
-    >
+    <button className="button1" type="submit" onClick={handleClick}>
       Continue & Pay
     </button>
   );

@@ -40,12 +40,15 @@ $colors: (
   max-width: 1200px;
   box-sizing: border-box;
   padding-inline: 1.5em;
-  background-color: color(bg-color);
+  background-color: white !important;
+  padding-bottom: 5em;
+
   @include tablet {
     padding-inline: 2.5em;
+    padding-bottom: 7em;
   }
   @include desktop {
-    padding-inline: 8em;
+    padding-inline: 5em;
   }
 }
 

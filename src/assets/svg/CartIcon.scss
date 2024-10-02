@@ -1,0 +1,10 @@
+@import '../../index.scss';
+
+.svg-anim {
+    transition: fill 0.05s ease;
+
+    &:hover {
+        fill: color(secondary-accent-color);
+    }
+}
+  

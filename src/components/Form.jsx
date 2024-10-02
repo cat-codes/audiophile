@@ -1,6 +1,6 @@
 import "./Form.scss";
 
-const Form = ({ label, placeholder, type, name, value, onChange }) => {
+const Form = ({ label, placeholder, type, name, value, onChange, error }) => {
   return (
     <form className="black">
       <label htmlFor={name}>{label}</label>
@@ -11,7 +11,9 @@ const Form = ({ label, placeholder, type, name, value, onChange }) => {
         name={name}
         value={value}
         onChange={onChange}
+        className={error ? "error" : ""}
       />
+      {error && <span className="error-message">{error}</span>}
     </form>
   );
 };

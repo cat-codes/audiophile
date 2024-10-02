@@ -29,7 +29,7 @@ const OrderConfirm = ({ openConfirm, onClose }) => {
           initial="hidden"
           animate="visible"
           exit="exit"
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: "anticipate" }}
         >
           <motion.div
             className="confirmation"
@@ -37,11 +37,14 @@ const OrderConfirm = ({ openConfirm, onClose }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.5, ease: "anticipate" }}
           >
             <div className="confirmation-content">
               <Check />
-              <h3>thank you for your order</h3>
+              <h3>
+                thank you
+                <br /> for your order
+              </h3>
               <p>You will receive an email confirmation shortly.</p>
 
               <section className="confirmation-content-summary">
@@ -75,7 +78,7 @@ const OrderConfirm = ({ openConfirm, onClose }) => {
                   </p>
                 </div>
                 <div className="confirmation-content-summary-total white">
-                  <p>Grand total</p>
+                  <p className="grand-total">Grand total</p>
                   <p className="confirmation-content-summary-total-price">
                     $ {totalPrice}
                   </p>

@@ -29,19 +29,27 @@
       padding: 2em;
       border-radius: 8px;
       gap: 1.5em;
+      width: 100%;
+
+      @include tablet {
+        max-width: 500px;
+      }
+
+      @include desktop {
+        gap: 1.75em;
+      }
 
       h3 {
         line-height: 28px;
-        width: 85%;
+        max-width: 10em;
 
         @include tablet{
-          width: 60%;
+          max-width: 9em;
           line-height: 1.25em;
         }
 
-        @include tablet{
-          width: 50%;
-
+        @include desktop{
+          line-height: 1.25em;
         }
       }
 
@@ -57,10 +65,10 @@
         &-top {
           flex: 2;
           display: flex;
-          padding: 1.5em;
-          border-radius: 8px;
+          flex-direction: column;
+          padding: 1em 1.5em;
+          border-radius: 8px 8px 0 0;
           background: color(secondary-color);
-          width: 100%;
 
           @include tablet {
             border-radius: 8px 0 0 8px;
@@ -71,7 +79,6 @@
             align-items: center;
             column-gap: 1em;
             padding-bottom: 12px;
-            width: 100%;
 
             img {
               height: 3em;
@@ -89,12 +96,10 @@
               .name {
                 opacity: 1;
                 font-weight: 700;
-                width: 100%;
               }
 
               .price {
                 opacity: 0.5;
-                width: 100%;
               }
             }
 
@@ -122,10 +127,14 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
-          width: 100%;
 
           @include tablet {
             border-radius: 0 8px 8px 0;
+          }
+
+          .grand-total {
+            letter-spacing: 1px;
+            font-weight: 100;
           }
 
           &-price {

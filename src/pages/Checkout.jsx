@@ -21,7 +21,8 @@ const Checkout = () => {
   });
   const [openConfirm, setOpenConfirm] = useState(false);
   const [selectedOption, setSelectedOption] = useState("e-Money");
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Resetts openConfirm when the component mounts
   useEffect(() => {
@@ -31,21 +32,31 @@ const Checkout = () => {
   // Enables the submit button based on form validation
   useEffect(() => {
     console.log("Form data:", formData);
-    console.log("Is Submit Disabled:", isSubmitDisabled);
-    setIsSubmitDisabled(!validateForm());
   }, [formData, selectedOption]);
 
   // Opens confirmation after submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
+    console.log("isSubmitted: ", isSubmitted);
     if (validateForm()) {
       setOpenConfirm(true);
     }
   };
 
+  console.log("isSubmitted: ", isSubmitted);
+  console.log("openConfirm: ", openConfirm);
+
   // Gets form input
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    // Clears the specific error for the input field being changed
+    setFormErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: undefined, // Clear the specific error message for this field
+    }));
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -54,6 +65,7 @@ const Checkout = () => {
 
   // Validates form
   const validateForm = () => {
+    const errors = {};
     const {
       name,
       email,
@@ -66,19 +78,40 @@ const Checkout = () => {
       eMoneyPin,
     } = formData;
 
-    // Basic fields must be filled
-    if (!name || !email || !phone || !address || !zip || !city || !country) {
-      return false;
+    // Required field check
+    if (!name) errors.name = "Name is required";
+    if (!email) errors.email = "Email is required";
+    if (!phone) errors.phone = "Phone number is required";
+    if (!address) errors.address = "Address is required";
+    if (!zip) errors.zip = "ZIP code is required";
+    if (!city) errors.city = "City is required";
+    if (!country) errors.country = "Country is required";
+
+    // Format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email && !emailRegex.test(email)) {
+      errors.email = "Invalid email format";
     }
 
-    // If e-Money is selected, e-Money fields must be filled
+    const phoneRegex = /^[0-9]+$/;
+    if (phone && !phoneRegex.test(phone)) {
+      errors.phone = "Invalid phone number format";
+    }
+
+    // Payment option validation
+    if (!selectedOption) {
+      errors.payment = "Please select a payment method";
+    }
+
+    // e-Money validation if selected
     if (selectedOption === "e-Money") {
-      if (!eMoneyNumber || !eMoneyPin) {
-        return false;
-      }
+      if (!eMoneyNumber) errors.eMoneyNumber = "e-Money number is required";
+      if (!eMoneyPin) errors.eMoneyPin = "e-Money PIN is required";
     }
 
-    return true; // All required fields are filled
+    setFormErrors(errors);
+    console.log("errors: ", errors);
+    return Object.keys(errors).length === 0; // Returns true if no errors
   };
 
   // Gets a selected option from payment method form
@@ -107,6 +140,7 @@ const Checkout = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
+                  error={isSubmitted && formErrors.name}
                 />
                 <Form
                   label="Email address"
@@ -115,6 +149,7 @@ const Checkout = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
+                  error={isSubmitted && formErrors.email}
                 />
                 <Form
                   label="Phone Number"
@@ -123,6 +158,7 @@ const Checkout = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  error={isSubmitted && formErrors.phone}
                 />
               </div>
             </section>
@@ -138,6 +174,7 @@ const Checkout = () => {
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
+                  error={isSubmitted && formErrors.address}
                 />
                 <Form
                   label="ZIP Code"
@@ -146,6 +183,7 @@ const Checkout = () => {
                   name="zip"
                   value={formData.zip}
                   onChange={handleInputChange}
+                  error={isSubmitted && formErrors.zip}
                 />
                 <Form
                   label="City"
@@ -154,6 +192,7 @@ const Checkout = () => {
                   name="city"
                   value={formData.city}
                   onChange={handleInputChange}
+                  error={isSubmitted && formErrors.city}
                 />
                 <Form
                   label="Country"
@@ -162,6 +201,7 @@ const Checkout = () => {
                   name="country"
                   value={formData.country}
                   onChange={handleInputChange}
+                  error={isSubmitted && formErrors.country}
                 />
               </div>
             </section>
@@ -195,6 +235,11 @@ const Checkout = () => {
                   ></input>
                   <label htmlFor="Cash on Delivery">Cash on Delivery</label>
                 </div>
+                {formErrors.payment && (
+                  <div className="error-message">
+                    {isSubmitted && formErrors.payment}
+                  </div>
+                )}
               </div>
 
               {/* Conditionally render e-Money fields */}
@@ -207,6 +252,7 @@ const Checkout = () => {
                     name="eMoneyNumber"
                     value={formData.eMoneyNumber}
                     onChange={handleInputChange}
+                    error={isSubmitted && formErrors.eMoneyNumber}
                   />
                   <Form
                     label="e-Money PIN"
@@ -215,6 +261,7 @@ const Checkout = () => {
                     name="eMoneyPin"
                     value={formData.eMoneyPin}
                     onChange={handleInputChange}
+                    error={isSubmitted && formErrors.eMoneyPin}
                   />
                 </div>
               )}
@@ -223,7 +270,7 @@ const Checkout = () => {
 
           <div className="checkout-summary">
             <Summary />
-            <Submit onClick={handleSubmit} disabled={isSubmitDisabled} />
+            <Submit onClick={handleSubmit} />
           </div>
 
           <OrderConfirm

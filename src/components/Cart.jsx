@@ -9,7 +9,7 @@ import RemoveAll from "./buttons/RemoveAll";
 import AddSubtract from "./buttons/AddSubtract";
 
 const Cart = () => {
-  const { cart, setCart } = GetCart();
+  const { cart, setCart, totalQty } = GetCart();
   const [openCart, setOpenCart] = useState(false);
   const [checkoutClicked, setCheckoutClicked] = useState(false);
 
@@ -82,62 +82,48 @@ const Cart = () => {
     }
   }, [checkoutClicked]);
 
-  const variants = {
-    open: {
-      scale: 1,
-      opacity: 1,
-      width: "90vw",
-      y: "-15%",
-      borderRadius: "8px",
-      transformOrigin: "center",
-    },
-    closed: {
-      scale: 0,
-      opacity: 0,
-    },
-  };
-
   const isCartEmpty = cart.length === 0 || totalPrice === 0;
 
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+
+  const cartVariants = {
+    hidden: { scale: 0 },
+    visible: { scale: 1 },
+    exit: { scale: 0 },
+  };
+
   return (
-    <button type="button" onClick={() => handleCart()}>
+    <button type="button" className="cart-button" onClick={() => handleCart()}>
+      <div className="count">{totalQty}</div>
       <CartIcon />
-      <div className="cart-container">
-        <AnimatePresence>
-          {openCart && (
+      <AnimatePresence>
+        {openCart && (
+          <div className="cart-container">
             <>
               {/* Overlay */}
               <motion.div
                 ref={cartRef}
                 key="overlay"
-                initial={{ opacity: 0, height: "100vh", width: "100vw" }}
-                animate={{
-                  opacity: 0.4,
-                  background: "black",
-                  height: "100vh",
-                  width: "100vw",
-                  position: "absolute",
-                }}
-                exit={{ opacity: 0 }}
+                className="overlay"
+                variants={overlayVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.5, ease: "anticipate" }}
               />
               {/* Cart content */}
               <motion.section
                 key="cartContent"
                 className="open-cart nav black"
-                initial={{
-                  scale: 0,
-                  opacity: 0,
-                }}
-                animate="open"
-                variants={variants}
-                transition={{
-                  duration: 0.5,
-                  ease: "anticipate",
-                }}
-                exit={{
-                  scale: 0,
-                  opacity: 0,
-                }}
+                variants={cartVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                transition={{ duration: 0.5, ease: "anticipate" }}
               >
                 <section className="open-cart-top black">
                   <p className="open-cart-top-title">Cart ({cartItemCount})</p>
@@ -147,14 +133,20 @@ const Cart = () => {
                 <ul className="open-cart-items">
                   {cart.map((item, index) => (
                     <li key={index}>
-                      <img
-                        className="item-img"
-                        src={`/src/assets/item-page/mobile/${item.img}/${item.img}-preview.jpg`}
-                      />
-                      <section className="item-info">
-                        <p className="item-info-title black">{item.short}</p>
-                        <p className="item-info-price black">{item.priceStr}</p>
-                      </section>
+                      <div className="item-left">
+                        <img
+                          className="item-left-img"
+                          src={`/src/assets/item-page/mobile/${item.img}/${item.img}-preview.jpg`}
+                        />
+                        <section className="item-left-info">
+                          <p className="item-left-info-title black">
+                            {item.short}
+                          </p>
+                          <p className="item-left-info-price black">
+                            {item.priceStr}
+                          </p>
+                        </section>
+                      </div>
 
                       <AddSubtract
                         quantityToHandle={item.quantity}
@@ -184,9 +176,9 @@ const Cart = () => {
                 </div>
               </motion.section>
             </>
-          )}
-        </AnimatePresence>
-      </div>
+          </div>
+        )}
+      </AnimatePresence>
     </button>
   );
 };

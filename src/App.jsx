@@ -6,11 +6,13 @@ import ItemPage from "./pages/ItemPage";
 import Checkout from "./pages/Checkout";
 import NoPage from "./pages/NoPage";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route index element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />

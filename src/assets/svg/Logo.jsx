@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Logo = () => {
+  const location = useLocation();
+  const handleLogoClick = () => {
+    if (location.pathname === "/home" || location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
-    <Link to={"/home"}>
+    <Link to="/home" onClick={handleLogoClick}>
       <svg
         style={{ cursor: "pointer" }}
         width="170"
