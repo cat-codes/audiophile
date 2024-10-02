@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Checkout.scss";
 import GoBack from "../components/buttons/GoBack";
 import Form from "../components/Form";
@@ -24,6 +24,17 @@ const Checkout = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Creates refs for the form fields
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  const addressRef = useRef(null);
+  const zipRef = useRef(null);
+  const cityRef = useRef(null);
+  const countryRef = useRef(null);
+  const eMoneyNumberRef = useRef(null);
+  const eMoneyPinRef = useRef(null);
+
   // Resetts openConfirm when the component mounts
   useEffect(() => {
     setOpenConfirm(false);
@@ -38,9 +49,36 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
+
     console.log("isSubmitted: ", isSubmitted);
+
     if (validateForm()) {
       setOpenConfirm(true);
+    } else {
+      setTimeout(scrollToError, 0);
+    }
+  };
+
+  // Scroll to the first error
+  const scrollToError = () => {
+    if (formErrors.name) {
+      nameRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (formErrors.email) {
+      emailRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (formErrors.phone) {
+      phoneRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (formErrors.address) {
+      addressRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (formErrors.zip) {
+      zipRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (formErrors.city) {
+      cityRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (formErrors.country) {
+      countryRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (formErrors.eMoneyNumber) {
+      eMoneyNumberRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (formErrors.eMoneyPin) {
+      eMoneyPinRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -134,6 +172,7 @@ const Checkout = () => {
               <p className="nav accent-color">Billing details</p>
               <div className="checkout-form-section-grid">
                 <Form
+                  ref={nameRef}
                   label="Name"
                   placeholder="Alexei Ward"
                   type="text"
@@ -143,6 +182,7 @@ const Checkout = () => {
                   error={isSubmitted && formErrors.name}
                 />
                 <Form
+                  ref={emailRef}
                   label="Email address"
                   placeholder="alexei@mail.com"
                   type="email"
@@ -152,6 +192,7 @@ const Checkout = () => {
                   error={isSubmitted && formErrors.email}
                 />
                 <Form
+                  ref={phoneRef}
                   label="Phone Number"
                   placeholder="+1 202-555-0136"
                   type="tel"
@@ -168,6 +209,7 @@ const Checkout = () => {
               <p className="nav accent-color">Shipping info</p>
               <div className="checkout-form-section-grid">
                 <Form
+                  ref={addressRef}
                   label="Your Address"
                   placeholder="1137 Williams Avenue"
                   type="text"
@@ -177,6 +219,7 @@ const Checkout = () => {
                   error={isSubmitted && formErrors.address}
                 />
                 <Form
+                  ref={zipRef}
                   label="ZIP Code"
                   placeholder="10001"
                   type="number"
@@ -186,6 +229,7 @@ const Checkout = () => {
                   error={isSubmitted && formErrors.zip}
                 />
                 <Form
+                  ref={cityRef}
                   label="City"
                   placeholder="New York"
                   type="text"
@@ -195,6 +239,7 @@ const Checkout = () => {
                   error={isSubmitted && formErrors.city}
                 />
                 <Form
+                  ref={countryRef}
                   label="Country"
                   placeholder="United States"
                   type="text"
@@ -246,6 +291,7 @@ const Checkout = () => {
               {isEMoneySelected && (
                 <div className="checkout-form-section-grid" id="optional">
                   <Form
+                    ref={eMoneyNumberRef}
                     label="e-Money Number"
                     placeholder="238521993"
                     type="number"
@@ -255,6 +301,7 @@ const Checkout = () => {
                     error={isSubmitted && formErrors.eMoneyNumber}
                   />
                   <Form
+                    ref={eMoneyPinRef}
                     label="e-Money PIN"
                     placeholder="6891"
                     type="number"

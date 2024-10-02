@@ -79,13 +79,13 @@
             @include tablet {
               grid-template-columns: repeat(2, 1fr);
               column-gap: 1em;
-              align-items: end;
             }
 
             .form-radio {
               display: flex;
               flex-direction: row;
               align-items: center;
+              align-self: flex-end;
               border: 1px solid #cfcfcf;
               padding: 0.85em 1.5em;
               border-radius: 8px;
